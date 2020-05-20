@@ -1,12 +1,15 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Header from "./Front End/component/Header"
+import HomePage from "./Front End/component/HomePage.js"
+import Login from "./Front End/component/Login"
+import SignUp from "./Front End/component/SignUp"
 
 function App() {
   return (
     <div className="App">
-      <Header/>
+  <SignUp/>
+      {/* <Login/> */}
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import React from "react"
 import "../CSS/Header.css"
 
-const Header = ()=>{
+const HomePage = ()=>{
     return(
         <nav className ="Nav">
             <div className="menu">
@@ -14,4 +14,4 @@ const Header = ()=>{
         </nav>
     )
 }
-export default Header
+export default HomePage
