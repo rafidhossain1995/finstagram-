@@ -8,8 +8,8 @@ DROP TABLE IF EXISTS users;
 
 CREATE TABLE users(
     id SERIAL PRIMARY KEY,
-    fullName text NOT NULL, 
-    userName TEXT NOT NULL UNIQUE,
+    fullname text NOT NULL, 
+    username TEXT NOT NULL UNIQUE,
     password VARCHAR, 
     email VARCHAR,
     user_pic VARCHAR
@@ -22,3 +22,4 @@ user_id INT REFERENCES users(id),
 pictures VARCHAR,
 captions VARCHAR
 );
+

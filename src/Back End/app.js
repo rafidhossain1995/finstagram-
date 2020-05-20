@@ -10,8 +10,8 @@ const postRouter = require('./Routes/postRoutes')
 
 app.use(cors());
 app.use(bodyParser.urlencoded({extended: false}));app.use(bodyParser.json());
-// app.use('/users', usersRouter);
-// app.use('/posts', postRouter);
+app.use('/users', usersRouter);
+app.use('/posts', postRouter);
 
 
 app.use((err, req, res, next) => {

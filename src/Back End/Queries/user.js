@@ -15,14 +15,14 @@ const getSingleUser = async (req, res, next) => {
             message: "Couldn't get User",
             payload: err
         })
-        next()
+       
     }
 }
 
 const logIn = async (req, res, next) => {
     try{
         let user = await db.one(
-            `SELECT * FROM users WHERE userName = '${req.body.userName}' AND password = '${req.body.password}'`
+            `SELECT * FROM users WHERE userName = '${req.body.username}' AND password = '${req.body.password}'`
             );
             res.status(200).json({
                 user, 
@@ -50,15 +50,15 @@ const deleteUser = async (req, res, next) => {
             message: "Error",
             payload: err
         })
-        next()
+       
     }
 }
 
 const editUser = async (req, res, next) => {
     try {
-        let {userName, user_pic} = req.body;
+        let {username, user_pic} = req.body;
         let userId = req.params.id;
-        let user = await db.one(`UPDATE users SET  userName='${userName}', user_pic='${user_pic}' WHERE id=${userId} RETURNING *`);
+        let user = await db.one(`UPDATE users SET  username='${username}', user_pic='${user_pic}' WHERE id=${userId} RETURNING *`);
         res.status(200).json({
             status: "success",
             message: "all users posts",
@@ -70,26 +70,30 @@ const editUser = async (req, res, next) => {
             message: "Error",
             payload: err
         })
-        next()
+       
     }
 }
 
-const createUser = async (req, res, next) => {
+const createUser = async (req, res) => {
+    console.log(req.body)
     try {
         let user = await db.one(
-            `INSERT INTO users (fullName, userName, email, password, user_pic) VALUES('${req.body.fullName}', '${req.body.userName}', '${req.body.email}', '${req.body.password}', '${req.body.user_pic}') RETURNING *`)
+            "INSERT INTO users (fullname, username, email, password, user_pic) VALUES(${fullname}, ${username}, ${email}, ${password}, ${user_pic}) RETURNING *" , 
+            req.body)
+            
         res.status(200).json({
             user,
             status: "success",
-            message: "added user posts"
+            message: "added user"
         })
     } catch (err){
+        console.log(err)
         res.status(400).json({
             status: "Error",
             message: "Error",
             payload: err
         })
-        next()
+       
     }
 }
 
