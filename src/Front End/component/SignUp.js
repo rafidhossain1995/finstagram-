@@ -3,6 +3,7 @@ import { useInputs } from "../utility/InputHooks";
 import { Link } from "react-router-dom";
 import "../CSS/SignUp.css";
 import axios from "axios";
+import {signup} from "../utility/firebaseFunction"
 
 const SignUp = () => {
   localStorage.clear();
@@ -14,19 +15,25 @@ const SignUp = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      let res = await axios.post("http://localhost:3000/users", {
-        email: email.value,
-        fullname: fullname.value,
-        username: username.value,
-        password: password.value,
-        user_pic: "",
-      });
-      console.log(res);
-      // localStorage.setItem("currentUserID", res.data.user.id)
-      // window.location.href = "./"
-    } catch (err) {
-      console.log(err);
+    // try {
+    //   let res = await axios.post("http://localhost:3000/users", {
+    //     email: email.value,
+    //     fullname: fullname.value,
+    //     username: username.value,
+    //     password: password.value,
+    //     user_pic: "",
+    //   });
+    //   console.log(res);
+    //   localStorage.setItem("currentUserID", res.data.user.id)
+    //   window.location.href = "./"
+    // } catch (err) {
+    //   console.log(err);
+    // }
+    try{
+        let res = await signup(email, password)
+        await axios.post("http://localhost:3000/users", {id: res.user.uid, email})
+    }catch(err){
+        console.log(err)
     }
   };
   return (
