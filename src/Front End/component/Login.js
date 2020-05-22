@@ -58,7 +58,9 @@ const Login = () => {
               </div>
               <input type="submit" className="btn btn-primary btn-block" placeholder="signin"/>
             </form>
-            <p className="terms-conditions"> By signing up, you agree to our Terms and Policy</p>
+            <div className="right-column-login text-center">
+            <Link to="/" className="button">New? Sign Up</Link>
+            </div>
             </div>
             
           </div>
