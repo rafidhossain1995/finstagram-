@@ -1,4 +1,4 @@
-* {
+/* * {
     margin: 0px;
     padding: 0px;
     margin-bottom: 50px;
@@ -30,6 +30,7 @@
   .header {
     border: 0px solid #000;
     margin-bottom: 5px;
+    
   }
   
   .header img {
@@ -38,6 +39,8 @@
     margin: auto;
     position: relative;
     left: 40px;
+    margin-right: 60px;
+    margin-bottom: 30px;
   }
   
   .email,
@@ -111,4 +114,31 @@
   input:focus {
       background-color: yellow;
   }
+ 
+   */
   
+   *{
+     margin: 0px;
+     padding: 0px
+   }
+
+   .ig-pic{
+     padding-top: 70px;
+     height: 650px; 
+     float: right;
+     margin: 10px;
+   }
+    .main {
+     background-color: #fafafa!important;
+   }
+
+   .container{
+    margin: 20px;
+    
+   }
+   .right{
+     background: #fff;
+     border: 1px solid #e6e6e6;
+     width: 350px;
+     margin: 10px;
+   }
