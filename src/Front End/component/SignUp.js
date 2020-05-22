@@ -83,14 +83,7 @@ const SignUp = () => {
               <p className="description">
                 Sign Up To See Photo And Videos From Your Friends
               </p>
-              <button type="submit" className="btn btn-primary btn-block">
-                <image
-                  src="https://www.facebook.com/images/fb_icon_325x325.png"
-                  className="fb-logo"
-                />
-                Log In With Facebook
-              </button>
-              <p className="or">OR</p>
+             
               <form onClick={handleSubmit}>
               <div className="form">
                   <input type="text" className="form-control" placeholder="Email" {...email}/>
