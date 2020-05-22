@@ -19,7 +19,7 @@ const getSingleUser = async (req, res, next) => {
     }
 }
 
-const logIn = async (req, res, next) => {
+const login = async (req, res, next) => {
     try{
         let user = await db.one(
             `SELECT * FROM users WHERE userName = '${req.body.username}' AND password = '${req.body.password}'`
@@ -97,4 +97,4 @@ const createUser = async (req, res) => {
     }
 }
 
-module.exports = {getSingleUser, logIn, deleteUser, editUser, createUser}
+module.exports = {getSingleUser, login, deleteUser, editUser, createUser}

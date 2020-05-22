@@ -113,22 +113,20 @@
   
   input:focus {
       background-color: yellow;
-  }
+  } */
  
-   */
+  
   
    *{
      margin: 0px;
      padding: 0px
    }
 
-   .ig-pic{
+   .instagram{
      padding-top: 70px;
-     height: 650px; 
-     float: right;
-     margin: 10px;
+     
    }
-    .main {
+    body {
      background-color: #fafafa!important;
    }
 
@@ -136,9 +134,90 @@
     margin: 20px;
     
    }
-   .right{
+   .right-column{
      background: #fff;
      border: 1px solid #e6e6e6;
      width: 350px;
      margin: 10px;
+     padding: 40px;
    }
+   .ig-logo{
+     width: 280px;
+     margin: 15px auto;
+
+   }
+
+   .description{
+     font-weight: 600px;
+     line-height: 20px;
+     font-size: 17px;
+     color: #999;
+
+   }
+   .form{
+     margin-bottom: 6px!important;
+   }
+
+   .email,
+   .fullname,
+   .username,
+   .password{
+     background:#fafafa !important;
+     border: 1px solid #efefef !important;
+     font-size: 12px;     
+   }
+
+   ::placeholder{
+     color: #999; 
+
+   }
+   .signup{
+     margin: 12px auto;
+     padding: 12px;
+     font-weight: 600;
+
+   }
+
+   button img{
+      height: 18px;
+      padding: 0 8px 2px;
+   }
+   .or{
+     font-size: #999;
+     font-weight: 600;
+   }
+   .or::before{
+     content: '';
+     background: #efefef;
+     display: block;
+     height: 2px;
+     width: 110px;
+     position: relative;
+     top: 11px;
+   }
+   .or::after{
+    content: '';
+    background: #efefef;
+    display: block;
+    height: 2px;
+    width: 110px;
+    position: relative;
+    bottom: 10px;
+    left: 160px;
+  }
+  .form{
+    margin-bottom: 6px;
+
+  }
+
+  .form-control{
+    background: #fafafa;
+    border: 1px solid #efefef;
+    font-size: 12px;
+  }
+
+  .ig-pic{
+    margin-top: 50px;
+    margin-right: 50px;
+}
+  
