@@ -77,7 +77,7 @@ const SignUp = () => {
           <div className="instagram">
             <div className="right-column text-center">
               <img
-                src="https://logodix.com/logo/836764.png"
+                src="https://see.fontimg.com/api/renderfont4/YdKj/eyJyIjoiZnMiLCJoIjoxMzAsInciOjIwMDAsImZzIjo2NSwiZmdjIjoiIzAwMDAwMCIsImJnYyI6IiNGRkZGRkYiLCJ0IjoxfQ/Rmluc3RhZ3JhbQ/countryside.png"
                 className="ig-logo"
               />
               <p className="description">
