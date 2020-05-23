@@ -1,9 +1,9 @@
 const db = require("../DB/index");
 
-const getSingleUser = async (req, res, next) => {
+const getAllUsers = async (req, res, next) => {
     try {
         let userId = req.params.id;
-        let user = await db.one(`SELECT * FROM users WHERE id=${userId}`);
+        let user = await db.one("SELECT * FROM users");
         res.status(200).json({
             status: "success",
             message: "single user",
@@ -78,7 +78,7 @@ const createUser = async (req, res) => {
     console.log(req.body)
     try {
         let user = await db.one(
-            "INSERT INTO users (fullname, username, email, password, user_pic) VALUES(${fullname}, ${username}, ${email}, ${password}, ${user_pic}) RETURNING *" , 
+            "INSERT INTO users (id, fullname, username, email, password, user_pic) VALUES(${id}, ${fullname}, ${username}, ${email}, ${password}, ${user_pic}) RETURNING *" , 
             req.body)
             
         res.status(200).json({
@@ -97,7 +97,7 @@ const createUser = async (req, res) => {
     }
 }
 
-module.exports = {getSingleUser, login, deleteUser, editUser, createUser}
+module.exports = {getAllUsers, login, deleteUser, editUser, createUser}
 
 
 

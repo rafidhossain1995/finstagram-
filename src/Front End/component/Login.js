@@ -4,25 +4,23 @@ import {useHistory} from "react-router-dom"
 import { Link } from "react-router-dom";
 import "../CSS/Login.css";
 import axios from "axios"
+import {login} from "../utility/firebaseFunction"
 
 const Login = () => {
   localStorage.clear();
   const history = useHistory()
-  const username = useInputs("");
+  const email = useInputs("");
   const password = useInputs("");
  const [error, setError] = useState(false)
 
   const handleSubmit = async (e) =>{
     e.preventDefault();
-    try{  
-        let res = await axios.post("http://localhost:3000/users/login",{
-          username:username.value,
-          password: password.value
-        })
-            debugger
-        }catch(err){
-            console.log(err)
-        }
+    try{
+      await login(email.value, password.value)
+      history.push("/login")
+    }catch(err){
+      console.log(err)
+    }
       
     }
 
@@ -55,7 +53,7 @@ const Login = () => {
             
               <form onClick={handleSubmit}>
               <div className="form">
-                  <input type="text" className="form-control" placeholder="Username or Email" {...username}/>
+                  <input type="text" className="form-control" placeholder="Username or Email" {...email}/>
               </div>
               <div className="form">
                   <input type="password" className="form-control" placeholder="Password" {...password}/>

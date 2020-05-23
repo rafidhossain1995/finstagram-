@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import { useInputs } from "../utility/InputHooks";
 import { Link } from "react-router-dom";
+import {useHistory} from "react-router-dom"
 import "../CSS/SignUp.css";
 import axios from "axios";
 import { signup } from "../utility/firebaseFunction";
-import { signUp } from "react-bootstrap";
+import { apiURL } from "../utility/apiURL";
+const API = apiURL()
+
 
 const SignUp = () => {
   localStorage.clear();
@@ -14,37 +17,30 @@ const SignUp = () => {
   const password = useInputs("");
   const [userPic, setUserPic] = useState("");
   const [loading, setLoading] = useState("");
-  console.log(email, fullname, username, password);
+  const history = useHistory()
+//   console.log(email, fullname, username, password);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      let res = await axios.post("http://localhost:3000/users", {
-        email: email.value,
-        fullname: fullname.value,
-        username: username.value,
-        password: password.value,
-        user_pic: userPic,
-      });
-      console.log(res);
-      localStorage.setItem("currentUserID", res.data.user.id);
-      window.location.href = "./";
-    } catch (err) {
-      console.log(err);
-    }
-    try {
-      let res = await signup(email, password);
-      await axios.post("http://localhost:3000/users", {
-        id: res.user.uid,
-        email,
-      });
-    } catch (err) {
-      console.log(err);
+        let res = await signup (email.value, password.value);
+        debugger
+        console.log(email.value)
+    
+      await axios.post(`${API}/api/login`,{id:res.user.uid, email})
+      debugger
+      
+      history.push("/login")
+    }catch(err){
+        console.log(err)
     }
   };
+
+
+
   const uploadPicture = async (e) => {
     const files = e.target.files;
-    console.log(files);
+    
     const data = new FormData();
     data.append("file", files[0]);
     data.append("upload_preset", "instagram_db");
@@ -88,7 +84,7 @@ const SignUp = () => {
               <div className="sign-up-info">
                 <form onClick={handleSubmit}>
                   <input
-                    type="text"
+                    type="email"
                     className="form-control"
                     placeholder="Email"
                     {...email}

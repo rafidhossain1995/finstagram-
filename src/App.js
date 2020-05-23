@@ -18,7 +18,7 @@ function App() {
         <Login/>
       </Route>
       
-      <Route exact to path={"/Profile"}>
+      <Route exact path={"/profile"}>
         <Profile/>
       </Route>
 

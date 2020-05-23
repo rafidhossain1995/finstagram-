@@ -1,9 +1,9 @@
 const users = require("express").Router();
-const { getSingleUser ,login, createUser, editUser, deleteUser } = require("../Queries/user")
+const { getAllUsers ,login, createUser, editUser, deleteUser } = require("../Queries/user")
 
 
 
-users.get("/:id", getSingleUser);
+users.get("/", getAllUsers);
 
 users.post("/login", login); // get user by username
 
