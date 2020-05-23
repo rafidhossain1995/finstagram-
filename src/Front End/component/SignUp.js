@@ -1,5 +1,5 @@
-import React,{useState} from "react";
-import { useInputs} from "../utility/InputHooks";
+import React, { useState } from "react";
+import { useInputs } from "../utility/InputHooks";
 import { Link } from "react-router-dom";
 import "../CSS/SignUp.css";
 import axios from "axios";
@@ -12,8 +12,8 @@ const SignUp = () => {
   const fullname = useInputs("");
   const username = useInputs("");
   const password = useInputs("");
-  const [userPic, setUserPic] = useState("")
-  const [loading, setLoading] = useState("")
+  const [userPic, setUserPic] = useState("");
+  const [loading, setLoading] = useState("");
   console.log(email, fullname, username, password);
 
   const handleSubmit = async (e) => {
@@ -44,20 +44,23 @@ const SignUp = () => {
   };
   const uploadPicture = async (e) => {
     const files = e.target.files;
+    console.log(files);
     const data = new FormData();
-    data.append('file', files[0])
-    data.append('upload_preset', 'instagram_db');
-    data.append('cloud_name', 'dbhncpu02')
-    setLoading(true)
-    let res = await fetch("https://api.cloudinary.com/v1_1/dbhncpu02/image/upload", {
-        method: 'Post',
-        body: data
-        }
-    )
-    const file = await res.json()
-    setUserPic(file.secure_url)
-    setLoading(false)
-}
+    data.append("file", files[0]);
+    data.append("upload_preset", "instagram_db");
+    data.append("cloud_name", "dhlczyds5");
+    setLoading(true);
+    let res = await fetch(
+      "https://api.cloudinary.com/v1_1/dhlczyds5/image/upload",
+      {
+        method: "Post",
+        body: data,
+      }
+    );
+    const file = await res.json();
+    setUserPic(file.secure_url);
+    setLoading(false);
+  };
   return (
     <div className="main">
       <link
@@ -70,7 +73,6 @@ const SignUp = () => {
             <img
               src="https://miro.medium.com/max/701/1*gbGs4B0o65vGY6AeruKCdw.jpeg"
               className="ig-pic"
-
             />
           </div>
 
@@ -83,29 +85,57 @@ const SignUp = () => {
               <p className="description">
                 Sign Up To See Photo And Videos From Your Friends
               </p>
-             
-              <form onClick={handleSubmit}>
-              <div className="form">
-                  <input type="text" className="form-control" placeholder="Email" {...email}/>
+              <div className="sign-up-info">
+                <form onClick={handleSubmit}>
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Email"
+                    {...email}
+                  />
+
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Full Name"
+                    {...fullname}
+                  />
+
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Username"
+                    {...username}
+                  />
+
+                  <input
+                    type="password"
+                    className="form-control"
+                    placeholder="Password"
+                    {...password}
+                  />
+
+                  <input type="file" 
+                  onInput={uploadPicture} 
+                  {...userPic}
+                  />
+
+                  <input
+                    type="submit"
+                    className="btn btn-primary btn-block"
+                    placeholder="signup"
+                  />
+                </form>
               </div>
-              <div className="form">
-                  <input type="text" className="form-control" placeholder="Full Name" {...fullname}/>
-              </div>
-              <div className="form">
-                  <input type="text" className="form-control" placeholder="Username" {...username}/>
-              </div>
-              <div className="form">
-                  <input type="password" className="form-control" placeholder="Password" {...password}/>
-              </div>
-              <div className="form">
-                  <input type="file" onChange={uploadPicture}/>
-              </div>
-              <input type="submit" className="btn btn-primary btn-block" placeholder="signup"/>
-            </form>
-            <p className="terms-conditions"> By signing up, you agree to our Terms and Policy</p>
+              <p className="terms-conditions">
+                {" "}
+                By signing up, you agree to our Terms and Policy
+              </p>
             </div>
             <div className="right-column-login text-center">
-            <Link to="/login" className="button">Have An Account? SignIn</Link>
+              <Link to="/login" className="button">
+                Have An Account? SignIn
+              </Link>
             </div>
           </div>
         </div>
@@ -114,4 +144,3 @@ const SignUp = () => {
   );
 };
 export default SignUp;
-

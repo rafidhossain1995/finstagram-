@@ -98,3 +98,6 @@ const createUser = async (req, res) => {
 }
 
 module.exports = {getSingleUser, login, deleteUser, editUser, createUser}
+
+
+

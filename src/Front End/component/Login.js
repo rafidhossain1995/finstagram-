@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import { useInputs } from "../utility/InputHooks";
 import {useHistory} from "react-router-dom"
 import { Link } from "react-router-dom";
@@ -7,25 +7,26 @@ import axios from "axios"
 
 const Login = () => {
   localStorage.clear();
-  // const history = useHistory()
+  const history = useHistory()
   const username = useInputs("");
   const password = useInputs("");
-  // const [error, setError] = useState(false)
+ const [error, setError] = useState(false)
 
-  const handleSubmit = async (e)=>{
-      e.preventDefault()
-      try{
-          let res = await axios.post("http://localhost:3000/users/login",{
-              username:username.value,
-              password: password.Value
-          })
-          console.log(res)
-          localStorage.setItem("currentUserID", res.data.user.id)
-          window.location.href = "./"
-      }catch(err){
-          console.log(err)
-      }
-  }
+  const handleSubmit = async (e) =>{
+    e.preventDefault();
+    try{  
+        let res = await axios.post("http://localhost:3000/users/login",{
+          username:username.value,
+          password: password.value
+        })
+            debugger
+        }catch(err){
+            console.log(err)
+        }
+      
+    }
+
+  
   return (
     <div className="main">
       <link
