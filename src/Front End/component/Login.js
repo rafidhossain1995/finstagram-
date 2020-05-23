@@ -1,13 +1,16 @@
 import React from "react";
 import { useInputs } from "../utility/InputHooks";
+import {useHistory} from "react-router-dom"
 import { Link } from "react-router-dom";
 import "../CSS/Login.css";
 import axios from "axios"
 
 const Login = () => {
   localStorage.clear();
+  // const history = useHistory()
   const username = useInputs("");
   const password = useInputs("");
+  // const [error, setError] = useState(false)
 
   const handleSubmit = async (e)=>{
       e.preventDefault()
@@ -54,7 +57,7 @@ const Login = () => {
                   <input type="text" className="form-control" placeholder="Username or Email" {...username}/>
               </div>
               <div className="form">
-                  <input type="text" className="form-control" placeholder="Password" {...password}/>
+                  <input type="password" className="form-control" placeholder="Password" {...password}/>
               </div>
               <input type="submit" className="btn btn-primary btn-block" placeholder="signin"/>
             </form>
