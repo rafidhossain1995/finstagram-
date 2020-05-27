@@ -1,0 +1,223 @@
+/* * {
+    margin: 0px;
+    padding: 0px;
+    margin-bottom: 50px;
+  }
+  
+  body {
+    background-color: #eee;
+  }
+  
+  #wrapper {
+    width: 500px;
+    height: 50%;
+    overflow: hidden;
+    border: 0px solid #000;
+    margin: 50px auto;
+    padding: 10px;
+  }
+  
+  .content {
+    width: 250px;
+    height: 40%;
+    margin: 10px auto;
+    background-color: #fff;
+    border: 2px solid #e6e6e6;
+    padding: 40px 50px;
+    height: 500px;
+  }
+  
+  .header {
+    border: 0px solid #000;
+    margin-bottom: 5px;
+    
+  }
+  
+  .header img {
+    height: 50px;
+    width: 175px;
+    margin: auto;
+    position: relative;
+    left: 40px;
+    margin-right: 60px;
+    margin-bottom: 30px;
+  }
+  
+  .email,
+  .fullname,
+  .username,
+  .password {
+    width: 100%;
+    margin-bottom: 5px;
+    padding: 8px 12px;
+    border: 1px solid #dbdbdb;
+    box-sizing: border-box;
+    border-radius: 3px;
+    margin-bottom: 20px;
+    
+  }
+  
+  .overlap-text {
+    position: relative;
+  }
+  
+  .overlap-text a {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    color: #003569;
+    font-size: 14px;
+    text-decoration: none;
+    font-family: 'Overpass Mono', monospace;
+    letter-spacing: -1px;
+  }
+  
+  .signup {
+    width: 100%;
+    background-color: #3897f0;
+    border: 1px solid #3897f0;
+    padding: 5px 12px;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 3px;
+  }
+  
+  .newAccountDiv {
+    width: 250px;
+    height: 20%;
+    margin: 10px auto;
+    border: 1px solid #e6e6e6;
+    padding: 20px 50px;
+    background-color: #fff;
+  }
+  
+  .sign-up {
+    text-align: center;
+    font-family: 'Overpass Mono', monospace;
+    word-spacing: -3px;
+    letter-spacing: -2px;
+    font-weight: normal;
+    font-size: larger;
+  }
+  
+  .sign-up a {
+    text-decoration: none;
+    cursor: pointer;
+    color: #3897f0;
+    font-family: 'Overpass Mono', monospace;
+    word-spacing: -3px;
+    letter-spacing: -2px;
+    font-weight: normal;
+  }
+  
+  input:focus {
+      background-color: yellow;
+  } */
+ 
+  
+  
+   *{
+     margin: 0px;
+     padding: 0px
+   }
+
+   .instagram{
+     padding-top: 70px;
+     
+   }
+    body {
+     background-color: #fafafa!important;
+   }
+
+   .container{
+    margin: 20px;
+    
+   }
+   .right-column{
+     background: #fff;
+     border: 1px solid #e6e6e6;
+     width: 350px;
+     margin: 10px;
+     padding: 40px;
+   }
+   .ig-logo{
+     width: 280px;
+     margin: 15px auto;
+
+   }
+
+   .description{
+     font-weight: 600px;
+     line-height: 20px;
+     font-size: 17px;
+     color: #999;
+
+   }
+   .form{
+     margin-bottom: 6px!important;
+   }
+
+   .email,
+   .fullname,
+   .username,
+   .password{
+     background:#fafafa !important;
+     border: 1px solid #efefef !important;
+     font-size: 12px;     
+   }
+
+   ::placeholder{
+     color: #999; 
+
+   }
+   .signup{
+     margin: 12px auto;
+     padding: 12px;
+     font-weight: 600;
+
+   }
+
+   button img{
+      height: 18px;
+      padding: 0 8px 2px;
+   }
+   .or{
+     font-size: #999;
+     font-weight: 600;
+   }
+   .or::before{
+     content: '';
+     background: #efefef;
+     display: block;
+     height: 2px;
+     width: 110px;
+     position: relative;
+     top: 11px;
+   }
+   .or::after{
+    content: '';
+    background: #efefef;
+    display: block;
+    height: 2px;
+    width: 110px;
+    position: relative;
+    bottom: 10px;
+    left: 160px;
+  }
+  .form{
+    margin-bottom: 6px;
+
+  }
+
+  .form-control{
+    background: #fafafa;
+    border: 1px solid #efefef;
+    font-size: 12px;
+  }
+
+  .ig-pic{
+    margin-top: 50px;
+    margin-right: 50px;
+}
+  
