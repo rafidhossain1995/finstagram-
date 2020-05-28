@@ -13,18 +13,15 @@ const Login = () => {
   const password = useInputs("");
  const [error, setError] = useState(false)
 
-  const handleSubmit = async (e) =>{
-    e.preventDefault();
-    try{
-      await login(email.value, password.value)
-      history.push("/login")
-    }catch(err){
-      console.log(err)
-    }
-      
-    }
+ const handleSubmit = async (e) => {
+  e.preventDefault();
+  try {
+    // await axios.post(`${API}/api/users`, { id: res.user.uid, email });
+    let res = await login(email, password)
+    history.push("/profile");
+  } catch (err) {}
+};
 
-  
   return (
     <div className="main">
       <link
@@ -51,12 +48,12 @@ const Login = () => {
                 Sign In To See Photo And Videos From Your Friends
               </p>
             
-              <form onClick={handleSubmit}>
+              <form onSubmit={handleSubmit}>
               <div className="form">
                   <input type="text" className="form-control" placeholder="Username or Email" {...email}/>
               </div>
               <div className="form">
-                  <input type="password" className="form-control" placeholder="Password" {...password}/>
+                  <input type="password"  className="form-control" placeholder="Password" {...password}/>
               </div>
               <input type="submit" className="btn btn-primary btn-block" placeholder="signin"/>
             </form>
@@ -66,9 +63,13 @@ const Login = () => {
             </div>
             
           </div>
+
         </div>
       </div>
     </div>
+   
   );
+  debugger
+  
 };
 export default Login;
