@@ -17,9 +17,12 @@ const Login = () => {
   e.preventDefault();
   try {
     // await axios.post(`${API}/api/users`, { id: res.user.uid, email });
-    let res = await login(email, password)
+    let res = await login(email.value, password.value)
+    debugger
     history.push("/profile");
-  } catch (err) {}
+  } catch (err) {
+     console.log(err)
+  }
 };
 
   return (

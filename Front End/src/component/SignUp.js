@@ -25,7 +25,7 @@ const SignUp = () => {
       let res = await signup(email.value, username.value, password.value, fullname.value)
       console.log(email.value);
       await axios.post(`${API}/users`, { id: res.user.uid, fullname, username, email });
-  
+      debugger
 
       history.push("/");
     } catch (err) {
