@@ -6,18 +6,26 @@ import "../CSS/Login.css";
 import axios from "axios"
 import {login} from "../utility/firebaseFunction"
 
-const Login = () => {
+import { apiURL } from "../utility/apiURL";
+const API = apiURL();
+
+export default function Login(){
   localStorage.clear();
   const history = useHistory()
   const email = useInputs("");
   const password = useInputs("");
  const [error, setError] = useState(false)
 
+
+ 
+
  const handleSubmit = async (e) => {
+   
   e.preventDefault();
   try {
     // await axios.post(`${API}/api/users`, { id: res.user.uid, email });
     let res = await login(email.value, password.value)
+    await axios.post(`${API}/users/loginUser`, { id: res.user.uid, email, password });
     debugger
     history.push("/profile");
   } catch (err) {
@@ -72,7 +80,6 @@ const Login = () => {
     </div>
    
   );
-  debugger
+
   
 };
-export default Login;

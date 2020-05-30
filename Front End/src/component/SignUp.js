@@ -17,7 +17,7 @@ const SignUp = () => {
   const [userPic, setUserPic] = useState("");
   const [loading, setLoading] = useState("");
   const history = useHistory();
-  //   console.log(email, fullname, username, password);
+  console.log(email, fullname, username, password);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -27,11 +27,13 @@ const SignUp = () => {
       await axios.post(`${API}/users`, { id: res.user.uid, fullname, username, email });
       debugger
 
-      history.push("/");
+      history.push("/login");
     } catch (err) {
       console.log(err);
     }
   };
+
+
 
   const uploadPicture = async (e) => {
     const files = e.target.files;

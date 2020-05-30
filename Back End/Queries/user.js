@@ -1,25 +1,19 @@
 const db = require("../DB/index");
 
-const getAllUsers = async (req, res, next) => {
-    try {
-        let userId = req.params.id;
-        let user = await db.one("SELECT * FROM users");
-        res.status(200).json({
-            status: "success",
-            message: "single user",
-            payload: user
-        })
-    } catch (err){
-        res.status(400).json({
-            status: "Error",
-            message: "Couldn't get User",
-            payload: err
-        })
-       
-    }
-}
 
-const login = async (req, res, next) => {
+// const getAllUsers = async (req, res, next) => {
+//     try {
+//         const users = await db.any("SELECT * FROM users");
+//         res.json({
+//             users,
+//             message: "All USERS"
+//         })
+//     } catch (err) {
+//         next(err);
+//     }
+// }
+
+const loginUser = async (req, res, next) => {
     try{
         let user = await db.one(
             `SELECT * FROM users WHERE userName = '${req.body.username}' AND password = '${req.body.password}'`
@@ -97,7 +91,7 @@ const createUser = async (req, res) => {
     }
 }
 
-module.exports = {getAllUsers, login, deleteUser, editUser, createUser}
+module.exports = {loginUser, deleteUser, editUser, createUser}
 
 
 

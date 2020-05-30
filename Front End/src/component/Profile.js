@@ -12,8 +12,8 @@ const Profile = ()=>{
         }else{
             return (
                 <>
-                <NavLink to ={"/login"}>Login</NavLink>
-                <NavLink to ={"/signup"}>Sign Up</NavLink>
+                <NavLink to ={"/home"}>Home</NavLink>
+                <NavLink to ={"/"}>Sign Up</NavLink>
                 </>
             )
         }
