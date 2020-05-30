@@ -16,21 +16,15 @@ export default function Login(){
   const password = useInputs("");
  const [error, setError] = useState(false)
 
-
- 
-
  const handleSubmit = async (e) => {
-   
   e.preventDefault();
-  try {
-    // await axios.post(`${API}/api/users`, { id: res.user.uid, email });
-    let res = await login(email.value, password.value)
-    await axios.post(`${API}/users/loginUser`, { id: res.user.uid, email, password });
-    debugger
-    history.push("/profile");
-  } catch (err) {
-     console.log(err)
-  }
+    try {
+      await login(email.value, password.value);
+      history.push("/profile");
+    } catch (err) {
+      setError(err.message);
+    }
+  
 };
 
   return (
