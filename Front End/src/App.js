@@ -5,27 +5,36 @@ import Login from "./component/Login"
 import SignUp from "./component/SignUp";
 import AuthProvider from "../src/providers/AuthContext"
 import Profile from "./component/Profile"
+import NavBar from "./component/NavBar"
+import Home from "./component/Home"
 
 import Users from "./component/Users"
+import {AuthRoute, ProtectedRoute} from "./utility/routesUtil"
 
 function App() {
   return (
     <div className="App">
     <AuthProvider>
+    <NavBar />
       <Switch>
-        <Route exact path={"/"}>
+        <AuthRoute exact path={"/signup"}>
           <SignUp />
-        </Route>
-        <Route path={"/login"}>
-          <Login />
-        </Route>
+        </AuthRoute>
 
-        <Route path="/users">
+        <AuthRoute path={"/login"}>
+          <Login />
+        </AuthRoute>
+
+        <ProtectedRoute path="/users">
           <Users />
-        </Route>
+        </ProtectedRoute>
 
         <Route path="/profile">
           <Profile />
+        </Route>
+
+        <Route path="/home">
+          <Home />
         </Route>
 
       </Switch>

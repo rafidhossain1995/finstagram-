@@ -20,7 +20,7 @@ export default function Login(){
   e.preventDefault();
     try {
       await login(email, password)
-      history.push("/profile"); 
+      history.push("/home"); 
     } catch (err) {
       console.log(err)
     }

@@ -6,14 +6,14 @@ export default function Users() {
     const [users, setUsers] = useState([]);
     const API = apiURL();
     useEffect(() => {
-        const fetchUsers = async () => {     
+        const getAllUsers = async () => {     
                     let res = await axios({
                     method: "get", 
-                    url: `${API}/users`
+                    url: `${API}/users/all`
                 })
             setUsers(res.data.users);
         }
-        fetchUsers();
+        getAllUsers();
     }, [API])
 
     return(

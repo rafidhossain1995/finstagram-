@@ -1,17 +1,17 @@
 const db = require("../DB/index");
 
 
-// const getAllUsers = async (req, res, next) => {
-//     try {
-//         const users = await db.any("SELECT * FROM users");
-//         res.json({
-//             users,
-//             message: "All USERS"
-//         })
-//     } catch (err) {
-//         next(err);
-//     }
-// }
+const getAllUsers = async (req, res, next) => {
+    try {
+        const users = await db.any("SELECT * FROM users");
+        res.json({
+            users,
+            message: "All USERS"
+        })
+    } catch (err) {
+        next(err);
+    }
+}
 
 const loginUser = async (req, res, next) => {
     try{
@@ -99,7 +99,7 @@ const createUser = async (req, res, next) => {
 
 
 
-module.exports = {loginUser, deleteUser, editUser, createUser}
+module.exports = {loginUser, deleteUser, editUser, createUser, getAllUsers}
 
 
 
