@@ -15,7 +15,7 @@ const db = require("../DB/index");
 
 const loginUser = async (req, res, next) => {
     try{
-        let user = await db.any(
+        let user = await db.one(
             `SELECT * FROM users WHERE email = '${req.body.email}' AND password = '${req.body.password}'`
             );
             res.status(200).json({
@@ -24,6 +24,11 @@ const loginUser = async (req, res, next) => {
                 message: "USER"
             })
     } catch (err){
+        res.status(400).json({
+            status: "Error",
+            message: "Username or Password does not exist",
+            payload: err
+        })
         next(err);
     }
 }
@@ -71,15 +76,12 @@ const editUser = async (req, res, next) => {
 const createUser = async (req, res) => {
     console.log(req.body)
     try {
-      let { id, fullname, username, email, password } = req.body
-      let user = await db.one(
-        "INSERT INTO users (id, fullname, username, email, password) VALUES ($1, $2, $3, $4, $5) RETURNING *",
-        [id, fullname, username, email, password]
-      )
+        let user = await db.one(
+            "INSERT INTO users (id, fullname, username, email) VALUES(${id}, ${fullname.value}, ${username.value}, ${email.value}) RETURNING *" , 
+            req.body)
+            
         res.status(200).json({
-            body:{
-                user,
-            },
+            user,
             status: "success",
             message: "added user"
         })
@@ -93,6 +95,9 @@ const createUser = async (req, res) => {
        
     }
 }
+
+
+
 
 module.exports = {loginUser, deleteUser, editUser, createUser}
 

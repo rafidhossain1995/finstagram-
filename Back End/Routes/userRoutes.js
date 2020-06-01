@@ -5,7 +5,7 @@ const { loginUser, createUser, editUser, deleteUser } = require("../Queries/user
 
 
 
-users.post("/login", loginUser); // get user by username
+users.post("/loginUser", loginUser); // get user by username
 
 users.post("/", createUser); 
 
@@ -15,3 +15,5 @@ users.delete("/:id", deleteUser);
 
 
 module.exports = users;
+
+

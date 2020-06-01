@@ -4,7 +4,7 @@ import {useHistory} from "react-router-dom"
 import { Link } from "react-router-dom";
 import "../CSS/Login.css";
 import axios from "axios"
-import {login} from "../utility/firebaseFunction"
+import {logIn} from "../utility/firebaseFunction"
 
 import { apiURL } from "../utility/apiURL";
 const API = apiURL();
@@ -15,12 +15,16 @@ export default function Login(){
   const email = useInputs("");
   const password = useInputs("");
  const [error, setError] = useState(false)
+ console.log(history, email)
 
  const handleSubmit = async (e) => {
   e.preventDefault();
     try {
-      await login(email.value, password.value);
+      await logIn(email.value, password.value)
+      debugger
       history.push("/profile");
+
+      
     } catch (err) {
       setError(err.message);
     }
