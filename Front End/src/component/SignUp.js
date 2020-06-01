@@ -10,26 +10,22 @@ const API = apiURL();
 
 const SignUp = () => {
   localStorage.clear();
-  const email = useInputs("");
-  const fullname = useInputs("");
-  const username = useInputs("");
-  const password = useInputs("");
+  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const [userPic, setUserPic] = useState("");
   const [loading, setLoading] = useState("");
   const history = useHistory();
-  console.log(email, fullname, username, password);
+  console.log(email,username, password);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      let res = await signup(email.value, username.value, password.value, fullname.value)
-      console.log(email.value);
-      await axios.post(`${API}/users`, { id: res.user.uid, fullname, username, email });
-      debugger
-
-      history.push("/login");
+    try {    
+        let res = await signup(email, password);
+        await axios.post(`${API}/users`, { email, username, password });
+        history.push("/login");
     } catch (err) {
-      console.log(err);
+      console.log(err)
     }
   };
 
@@ -84,28 +80,22 @@ const SignUp = () => {
                     type="email"
                     className="form-control"
                     placeholder="Email"
-                    {...email}
+                    onChange={(e) => setEmail(e.currentTarget.value)}
                   />
 
-                  <input
-                    type="text"
-                    className="form-control"
-                    placeholder="Full Name"
-                    {...fullname}
-                  />
 
                   <input
                     type="text"
                     className="form-control"
                     placeholder="Username"
-                    {...username}
+                    onChange={(e) => setUsername(e.currentTarget.value)}
                   />
 
                   <input
                     type="password"
                     className="form-control"
                     placeholder="Password"
-                    {...password}
+                    onChange={(e) => setPassword(e.currentTarget.value)}
                   />
 
                   <input type="file" onInput={uploadPicture} {...userPic} />

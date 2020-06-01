@@ -73,28 +73,28 @@ const editUser = async (req, res, next) => {
     }
 }
 
-const createUser = async (req, res) => {
-    console.log(req.body)
+const createUser = async (req, res, next) => {
     try {
-        let user = await db.one(
-            "INSERT INTO users (id, fullname, username, email) VALUES(${id}, ${fullname.value}, ${username.value}, ${email.value}) RETURNING *" , 
-            req.body)
-            
-        res.status(200).json({
-            user,
-            status: "success",
-            message: "added user"
-        })
-    } catch (err){
-        console.log(err)
-        res.status(400).json({
-            status: "Error",
-            message: "Error",
-            payload: err
-        })
-       
+      let { email,  username, password } = req.body;
+      let user = await db.one(
+        "INSERT INTO users (email, username, password) VALUES ($1, $2, $3) RETURNING *",
+        [ email, username, password]
+      );
+      res.status(200).json({
+        status: "Success",
+        message: "Created new user",
+        body: {
+          user,
+        },
+      });
+    } catch (error) {
+      res.json({
+        status: "Error",
+        message: "Username already exists",
+      });
+      next(error);
     }
-}
+  };
 
 
 

@@ -4,29 +4,25 @@ import {useHistory} from "react-router-dom"
 import { Link } from "react-router-dom";
 import "../CSS/Login.css";
 import axios from "axios"
-import {logIn} from "../utility/firebaseFunction"
+import {login} from "../utility/firebaseFunction"
 
 import { apiURL } from "../utility/apiURL";
 const API = apiURL();
 
 export default function Login(){
-  localStorage.clear();
   const history = useHistory()
-  const email = useInputs("");
-  const password = useInputs("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
  const [error, setError] = useState(false)
- console.log(history, email)
+ console.log(email, password)
 
  const handleSubmit = async (e) => {
   e.preventDefault();
     try {
-      await logIn(email.value, password.value)
-      debugger
-      history.push("/profile");
-
-      
+      await login(email, password)
+      history.push("/profile"); 
     } catch (err) {
-      setError(err.message);
+      console.log(err)
     }
   
 };
@@ -59,10 +55,10 @@ export default function Login(){
             
               <form onSubmit={handleSubmit}>
               <div className="form">
-                  <input type="text" className="form-control" placeholder="Username or Email" {...email}/>
+                  <input type="text" className="form-control" value = {email} placeholder="Email"  onChange={(e) => setEmail(e.currentTarget.value)}/>
               </div>
               <div className="form">
-                  <input type="password"  className="form-control" placeholder="Password" {...password}/>
+                  <input type="password"  className="form-control" value = {password} placeholder="Password"  onChange={(e) => setPassword(e.currentTarget.value)}/>
               </div>
               <input type="submit" className="btn btn-primary btn-block" placeholder="signin"/>
             </form>
