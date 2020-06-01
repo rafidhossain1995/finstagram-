@@ -17,7 +17,7 @@ function App() {
     <AuthProvider>
     <NavBar />
       <Switch>
-        <AuthRoute exact path={"/signup"}>
+        <AuthRoute exact path={"/"}>
           <SignUp />
         </AuthRoute>
 
