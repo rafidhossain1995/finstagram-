@@ -97,17 +97,30 @@ const createUser = async (req, res, next) => {
   };
 
 
-  const getSingleUser = async (req, res, next) => {
-        try {
-            let userEmail = await db.one('SELECT * FROM Users WHERE email = $1', [req.params.email]);
-            res.status(200).json({
-                status: "success",
-                message: "User Retrieved",
-                payload: userEmail
-            });
-        } catch(err) {
-           console.log(err)
-        }
+//   const getSingleUser = async (req, res, next) => {
+//         try {
+//             let userEmail = await db.one('SELECT * FROM users WHERE email = $1', [req.params.email]);
+//             res.status(200).json({
+//                 status: "success",
+//                 message: "User Retrieved",
+//                 payload: userEmail
+//             });
+//         } catch(err) {
+//            console.log(err)
+//         }
+// }
+
+const getSingleUser = async (req, res, next) => {
+    try {
+        let user = await db.one(`SELECT * FROM users WHERE email = $1`, [req.params.email]);
+        res.status(200).json({
+            status: "success",
+            message: " USER",
+            user
+        })
+    } catch (err) {
+        next(err);
+    }
 }
 
 
