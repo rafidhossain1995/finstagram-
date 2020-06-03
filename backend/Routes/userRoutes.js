@@ -1,5 +1,5 @@
 const users = require("express").Router();
-const { loginUser, createUser, editUser, deleteUser, getAllUsers } = require("../Queries/user")
+const { loginUser, createUser, editUser, deleteUser, getAllUsers, getSingleUser } = require("../Queries/user")
 const {checkFirebaseToken} = require ("../middleware/auth")
 
 
@@ -14,6 +14,8 @@ users.get("/all", checkFirebaseToken, getAllUsers)
 users.patch("/:id", editUser);
 
 users.delete("/:id", deleteUser);
+
+users.get("/singleUser/:email", checkFirebaseToken, getSingleUser)
 
 
 module.exports = users;

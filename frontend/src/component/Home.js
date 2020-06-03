@@ -1,8 +1,17 @@
 import React from "react"
+import NavBar from "./NavBar"
 
 const Home = ()=>{
     return(
-        <h1> Home Page</h1>
+        <>
+        <NavBar/>
+        </>
+    
+        
+      
+            
+      
+        
     )
 }
 export default Home

@@ -4,7 +4,7 @@ const db = require("../DB/index");
 const getAllUsers = async (req, res, next) => {
     try {
         const users = await db.any("SELECT * FROM users");
-        res.json({
+        res.status(200).json({
             users,
             message: "All USERS"
         })
@@ -75,17 +75,17 @@ const editUser = async (req, res, next) => {
 
 const createUser = async (req, res, next) => {
     try {
-      let { id, email,  username, password } = req.body;
+      let { id, email,  username} = req.body;
       let user = await db.one(
-        "INSERT INTO users (id, email, username, password) VALUES ($1, $2, $3, $4) RETURNING *",
-        [ id, email, username, password]
+        "INSERT INTO users (id, email, username) VALUES ($1, $2, $3) RETURNING *",
+        [ id, email, username]
       );
       res.status(200).json({
         status: "Success",
         message: "Created new user",
-        body: {
-          user,
-        },
+        // body: {
+        //   user,
+        // },
       });
     } catch (error) {
       res.json({
@@ -97,9 +97,22 @@ const createUser = async (req, res, next) => {
   };
 
 
+  const getSingleUser = async (req, res, next) => {
+        try {
+            let userEmail = await db.one('SELECT * FROM Users WHERE email = $1', [req.params.email]);
+            res.status(200).json({
+                status: "success",
+                message: "User Retrieved",
+                payload: userEmail
+            });
+        } catch(err) {
+           console.log(err)
+        }
+}
 
 
-module.exports = {loginUser, deleteUser, editUser, createUser, getAllUsers}
+
+module.exports = {loginUser, deleteUser, editUser, createUser, getAllUsers, getSingleUser}
 
 
 

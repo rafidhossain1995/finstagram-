@@ -1,5 +1,50 @@
 .home{
     content: url("../Pictures/home.png");
+    width: 70px;
+    margin-left: 10px;
+  
+}
+
+.profile{
+    content: url("../Pictures/Instagram-logo.png");
     width: 40px;
-    margin-left:22px ;
+    margin-left: 10px;
+    
+}
+
+.logout{
+    width: 50px;
+    margin-left: 35px;
+}
+.Nav{
+    background-color: #fff;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.0975);
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 2;
+      -webkit-transition: height 0.2s ease-in-out;
+      transition: height 0.2s ease-in-out;
+      height: 77px;
+      
+}
+
+.menu{
+    /* display: flex; */
+      flex-direction: row;
+      height: 77px;
+      width: 70%;
+      margin-left: 50%;
+      padding: 26px 40px;
+     
+      
+}
+
+.home-body{
+    margin-left: 40%;
+    display: flex;
+    flex-direction: row;
+    padding-left: 24px;
+   
+ 
 }
