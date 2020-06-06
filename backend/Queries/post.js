@@ -78,7 +78,7 @@ const editPost = async (req, res, next) => {
 };
 const createPost = async (req, res, next) => {
   try {
-      let photo = await db.one(`INSERT INTO Photos (user_id, picture) VALUES('${req.body.user_id}', '${req.body.picture}') RETURNING *`);
+      let photo = await db.one(`INSERT INTO posts (user_id, pictures) VALUES($1, $2) RETURNING *`, [req.body.id, req.body.pictures]);
       res.status(200).json({
           status: 'success',
           message: 'created new photo',

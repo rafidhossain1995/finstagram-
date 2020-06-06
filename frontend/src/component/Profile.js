@@ -20,8 +20,9 @@ import {storage} from "../firebase"
         let email = currentUser.email
 
         useEffect(() => {
+            
         const fetchData = async () => {  
-            debugger   
+           
                     let res = await axios({
                     method: "get", 
                     url: `${API}/users/singleUser/${email}`,
@@ -29,11 +30,12 @@ import {storage} from "../firebase"
                         'AuthToken': token
                     }
                 })
-                debugger
+                
             setUser(res.data.user);
         }
         fetchData();
     }, [API])
+    debugger
 
         const handleChange =(e)=>{
             const file = e.target.files[0]
@@ -71,7 +73,11 @@ import {storage} from "../firebase"
                     .child(profilePic.name)
                     .getDownloadURL()
                     .then(url =>{
-                        console.log(url)
+                        axios.post(`${API}/posts`,{
+                            pictures: url,
+                            id: currentUser.id
+                        })
+                        setUrl(url)
                     })
                }
                
@@ -81,6 +87,8 @@ import {storage} from "../firebase"
                 setError("Error please choose an image to upload")
             }
         }
+
+        
         
 
        
@@ -93,7 +101,7 @@ import {storage} from "../firebase"
             <input className="file" type = "file" onChange={handleChange}/>
             <button onClick = {handleUpdate}>Upload Profile</button>
             </div>
-
+            <img src={url}/>
 
             <div style = {{height:"100px"}}>
                 {progress > 0 ? <progress value={progress} max ="100"/>: ""}
