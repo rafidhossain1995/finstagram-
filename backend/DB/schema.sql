@@ -13,10 +13,10 @@ username VARCHAR,
 password VARCHAR
 );
 
--- CREATE TABLE posts(
--- id SERIAL PRIMARY KEY,
--- user_id VARCHAR REFERENCES users(id),
--- pictures VARCHAR,
+CREATE TABLE posts(
+id SERIAL PRIMARY KEY,
+user_id VARCHAR REFERENCES users(id),
+pictures VARCHAR
 -- captions VARCHAR
--- );
+);
 

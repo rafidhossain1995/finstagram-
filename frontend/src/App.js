@@ -15,7 +15,7 @@ function App() {
   return (
     <div className="App">
     <AuthProvider>
-    <NavBar />
+    {/* <NavBar /> */}
       <Switch>
         <AuthRoute exact path={"/"}>
           <SignUp />

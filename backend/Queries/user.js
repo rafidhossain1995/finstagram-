@@ -83,9 +83,9 @@ const createUser = async (req, res, next) => {
       res.status(200).json({
         status: "Success",
         message: "Created new user",
-        // body: {
-        //   user,
-        // },
+        body: {
+          user,
+        },
       });
     } catch (error) {
       res.json({

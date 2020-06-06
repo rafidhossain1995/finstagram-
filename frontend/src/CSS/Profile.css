@@ -1,9 +1,9 @@
- /* :root{
+ /* /* :root{
     font-size: 10px;
 } */
 
 
-*,
+/* *,
 *::before,
 *::after {
     box-sizing: border-box;
@@ -105,4 +105,12 @@ img {
 
     background-color: rgba(0, 0, 0, 0.3);
   
-} 
+}   */
+
+.form{
+    -webkit-appearance: none;
+    appearance: none;
+    width: 50%;
+    margin-bottom: 10px;
+    margin-top: 200px;
+}

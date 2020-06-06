@@ -22,7 +22,7 @@ export default function Login(){
       await login(email, password)
       history.push("/home"); 
     } catch (err) {
-      console.log(err)
+      alert("username or password... SIke you woulda thought i was gonna tell you which one huh")
     }
   
 };

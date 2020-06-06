@@ -78,20 +78,17 @@ const editPost = async (req, res, next) => {
 };
 const createPost = async (req, res, next) => {
   try {
-    let post = await db.one(`
-            INSERT INTO posts (user_id, pictures, captions) VALUES('${req.body.user_id}', '${req.body.pictures}', '${req.body.captions}') RETURNING *`);
-    res.status(200).json({
-      status: "success",
-      message: "created a new post",
-      payload: post,
-    });
-  } catch (err) {
-    res.status(400).json({
-      status: "Error",
-      message: "Error",
-      payload: err,
-    });
-    next();
+      let photo = await db.one(`INSERT INTO Photos (user_id, picture) VALUES('${req.body.user_id}', '${req.body.picture}') RETURNING *`);
+      res.status(200).json({
+          status: 'success',
+          message: 'created new photo',
+          payload: photo
+      });
+  } catch(error) {
+      res.status(400).json({
+          status: 'error',
+          message: 'no new pics'
+      });
   }
-};
+}
 module.exports = { getPosts, getUsersPosts, deletePost, editPost, createPost };
