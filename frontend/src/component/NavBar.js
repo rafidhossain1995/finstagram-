@@ -9,19 +9,20 @@ import Login from "./Login"
 
 export default function NavBar(params) {
     
-// const {currentUser} = useContext(AuthContext)
 
-// const displayButton = ()=>{
-//   if(currentUser){
-//     return <button onClick={logout}>Logout</button>
-//   }else{
-//     return(
-//       <>
-//       <Login/>
-//       </>
-//     )
-//   }
-// }
+const { currentUser } = useContext(AuthContext);
+
+	const displayButton = () => {
+		if (currentUser) {
+			return <button onClick={logout}>Logout</button>;
+		} else {
+			return (
+				<>
+			<Login/>
+				</>
+			);
+		}
+	};
 
 
     return(
@@ -32,10 +33,10 @@ export default function NavBar(params) {
         <div className = "brand">
             <div className = "logo">
             <div className="home-body">
-            <h2 className="insta-logo">Instagram</h2>
+            <NavLink to ={"/home"}className="insta-logo">Instagram</NavLink>
                 <NavLink to={"/home"} className="home" >Home</NavLink>
-                <NavLink to={"/users"}className="home">Show All Users</NavLink>
-                <NavLink to = {"/profile"}className="profile">Profile</NavLink>
+                <NavLink to={"/users"} className="home">Show All Users</NavLink>
+                <NavLink to = {"/profile"} className="profile">Profile</NavLink>
                 
                 <button className="logout" onClick = {logout}>Logout</button>  
       
@@ -46,6 +47,7 @@ export default function NavBar(params) {
         </div>
       </div>
     </nav>
+    
      
       </>
        

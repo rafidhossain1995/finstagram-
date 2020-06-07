@@ -38,13 +38,13 @@ const DisplayImage =()=>{
            <PostCard  
            username = {post.username}
            imageUrl={API + post.pictures}
-            postContent={post.content}
-
+           postContent={post.content}
             />
           
            </div>
         )
     })
+    
     
 
     

@@ -8,15 +8,14 @@ const Home =()=>{
     const API = apiURL()
     const {currentUser, token} = useContext(AuthContext)
     const [posts, setPosts] = useState([])
-    let email = currentUser.email
-    let user_id = currentUser.id
+
 
 
 
     useEffect(() => {
             
         const allPosts= async () => {  
-           
+                    debugger
                     let res = await axios({
                     method: "get", 
                     url: `${API}/posts/`,
@@ -30,7 +29,7 @@ const Home =()=>{
         }
         allPosts();
     }, [API])
-    debugger
+   
     
     const showPosts = posts.map((post)=>{
         return(
@@ -53,6 +52,7 @@ const Home =()=>{
         <div>
         <h1> Look at your friend's Posts </h1>
         {showPosts}
+    
         </div>
     )
 }

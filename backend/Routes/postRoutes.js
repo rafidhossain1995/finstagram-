@@ -10,4 +10,3 @@ posts.delete("/:id", deletePost);
 
 posts.patch("/:id", editPost);
 module.exports = posts;
-module.exports = posts;

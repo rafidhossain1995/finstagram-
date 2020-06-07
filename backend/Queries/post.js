@@ -81,7 +81,7 @@ const createPost = async (req, res, next) => {
   try{
     upload(req, res, err=>{
       try{
-        const { content} = req.body
+        const {content} = req.body
         const {user_id} = req.params
         let pictures = '/uploads/' + req.file.filename
         db.one(`INSERT INTO posts (user_id, pictures, content) VALUES($1, $2, $3) RETURNING *`, [user_id, pictures, content])

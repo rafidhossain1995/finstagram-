@@ -13,3 +13,26 @@ img {
     width: 100%;
     height: 100%;
   }
+
+.heart{
+    content: url("../Pictures/heart-png.png");
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+}
+.comment{
+    content: url("../Pictures/comment-png.png");
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+}
+
+.follow{
+    content: url("../Pictures//following.png");
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+}
+.iconz{
+    display: flex
+}

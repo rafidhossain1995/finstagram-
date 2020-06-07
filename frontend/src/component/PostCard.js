@@ -16,6 +16,12 @@ const PostCard = ({imageUrl, postContent})=>{
         <div className="picture">
             <img src={imageUrl} style={handleStyle}/>
             <h2>{postContent}</h2>
+            <div className="iconz">
+            <h3 className="heart">heart</h3>
+            <h3 className="comment">Comment</h3>
+            <h3 className="follow">follow</h3>
+            </div>
+          
 
          </div>
             

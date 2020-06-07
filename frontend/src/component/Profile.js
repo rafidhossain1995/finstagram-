@@ -74,7 +74,7 @@ import DisplayImage from "./DisplayImage"
                 console.log(err)
             }
         }
-     
+        debugger
         
        
 
@@ -94,8 +94,8 @@ import DisplayImage from "./DisplayImage"
                 <form onSubmit={handleNewPost} className="profile-user-settings">
 
 
-			 <input className="file" placeholder= "hello" type = "file" onChange={onSelectImage}/>
-                {/* <input placeholder = "Enter Caption" className="content" type="text" {...content}/> */}
+			    <input className="file" placeholder= "hello" type = "file" onChange={onSelectImage}/>
+                <input placeholder = "Enter Caption" className="content" type="text" {...content}/>
                 <button type="submit" className="btn profile-edit-btn">Add Picture</button>
 
 			    </form>
@@ -124,7 +124,3 @@ import DisplayImage from "./DisplayImage"
 
     }
     export default Profile
-
-
-
-    

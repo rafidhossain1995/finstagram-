@@ -5,6 +5,7 @@ CREATE DATABASE instagram_db;
 
 DROP TABLE IF EXISTS posts;
 DROP TABLE IF EXISTS users; 
+DROP TABLE IF EXISTS comments;
 
 CREATE TABLE users(
 id VARCHAR PRIMARY KEY,
@@ -21,4 +22,10 @@ pictures VARCHAR,
 content VARCHAR
 );
 
+CREATE TABLE comments(
+    id SERIAL PRIMARY KEY,
+    commenters_id VARCHAR REFERENCES users(id) ON DELETE CASCADE,
+    post_id INT REFERENCES posts(id) ON DELETE CASCADE,
+    content VARCHAR
 
+);
