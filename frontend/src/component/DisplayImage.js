@@ -9,13 +9,15 @@ const DisplayImage =()=>{
     const {currentUser, token} = useContext(AuthContext)
     const [posts, setPosts] = useState([])
 
+    let user_id = currentUser.id
+
     useEffect(() => {
             
         const createPosts= async () => {  
            
                     let res = await axios({
                     method: "get", 
-                    url: `${API}/posts`,
+                    url: `${API}/posts/${user_id}`,
                     headers: {
                         'AuthToken': token
                     }
@@ -26,21 +28,23 @@ const DisplayImage =()=>{
         }
         createPosts();
     }, [API])
-    debugger
+    
     
     const showPosts = posts.map((post)=>{
         return(
            <>
 
            <PostCard  
-           username = {post.user_id}
+           username = {post.username}
            imageUrl={API + post.pictures}
-            
-            postContent={post.content}/>
+            postContent={post.content}
+                
+            />
           
            </>
         )
     })
+    
 
     
     return(

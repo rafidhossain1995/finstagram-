@@ -11,6 +11,7 @@ id VARCHAR PRIMARY KEY,
 email VARCHAR,
 username VARCHAR,
 password VARCHAR
+
 );
 
 CREATE TABLE posts(

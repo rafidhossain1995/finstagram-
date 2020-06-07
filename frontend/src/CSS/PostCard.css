@@ -1,0 +1,16 @@
+/* .picture{
+   
+   padding:1px;
+   border:1px solid #021a40;
+   background-color:#ff0;
+   width: 50%
+} */
+
+.posts{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+
+

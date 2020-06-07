@@ -1,20 +1,24 @@
 import React from "react"
+import "../CSS/PostCard.css"
 
 
-const PostCard = ({user_id, imageUrl, postContent})=>{
+const PostCard = ({imageUrl, postContent})=>{
     const handleStyle = {
         height:"300px",
         width:"300px",
         border: "2px solid black"
         
     }
+    debugger
     return(
-        <div>
-            <h3>{user_id}</h3>
-            <div>
+        <div className="pic">
+        
+            <div className="picture">
             <img src={imageUrl} style={handleStyle}/>
-            </div>
             <h2>{postContent}</h2>
+
+         </div>
+            
         </div>
 
         

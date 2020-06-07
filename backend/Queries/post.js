@@ -20,8 +20,7 @@ const getPosts = async (req, res, next) => {
 const getUsersPosts = async (req, res, next) => {
   try {
     let posts = await db.any(
-      "SELECT * FROM posts WHERE user_id=$1",
-      req.params.id
+      `SELECT * FROM posts WHERE user_id=$1`,[req.params.id]
     );
     res.status(200).json({
       status: "success",
@@ -37,6 +36,7 @@ const getUsersPosts = async (req, res, next) => {
     next();
   }
 };
+
 const deletePost = async (req, res, next) => {
   try {
     let { postId } = req.params.id;
@@ -81,7 +81,8 @@ const createPost = async (req, res, next) => {
   try{
     upload(req, res, err=>{
       try{
-        const {user_id, content} = req.body
+        const { content} = req.body
+        const {user_id} = req.params
         let pictures = '/uploads/' + req.file.filename
         db.one(`INSERT INTO posts (user_id, pictures, content) VALUES($1, $2, $3) RETURNING *`, [user_id, pictures, content])
         .then(done=>{
