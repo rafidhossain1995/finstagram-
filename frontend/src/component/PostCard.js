@@ -12,8 +12,8 @@ const PostCard = ({imageUrl, postContent})=>{
     debugger
     return(
         <div className="pic">
-        
-            <div className="picture">
+
+        <div className="picture">
             <img src={imageUrl} style={handleStyle}/>
             <h2>{postContent}</h2>
 
@@ -21,7 +21,7 @@ const PostCard = ({imageUrl, postContent})=>{
             
         </div>
 
-        
+       
     )
 }
 export default PostCard

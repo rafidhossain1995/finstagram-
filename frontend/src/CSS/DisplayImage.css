@@ -1,0 +1,15 @@
+/* .gallery {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(8, 5vw);
+    grid-gap: 15px;
+   
+} */
+
+/* .gallery-item {
+    position: relative;
+    flex: 1 0 22rem;
+    margin: 1rem;
+
+    cursor: pointer;
+} */

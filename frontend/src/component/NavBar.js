@@ -32,9 +32,11 @@ export default function NavBar(params) {
         <div className = "brand">
             <div className = "logo">
             <div className="home-body">
+            <h2 className="insta-logo">Instagram</h2>
                 <NavLink to={"/home"} className="home" >Home</NavLink>
                 <NavLink to={"/users"}className="home">Show All Users</NavLink>
                 <NavLink to = {"/profile"}className="profile">Profile</NavLink>
+                
                 <button className="logout" onClick = {logout}>Logout</button>  
       
             </div>

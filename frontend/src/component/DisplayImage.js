@@ -3,6 +3,7 @@ import axios from "axios"
 import {AuthContext} from "../providers/AuthContext"
 import { apiURL } from "../utility/apiURL"
 import PostCard from "./PostCard"
+import "../CSS/DisplayImage.css"
 
 const DisplayImage =()=>{
     const API = apiURL()
@@ -32,28 +33,33 @@ const DisplayImage =()=>{
     
     const showPosts = posts.map((post)=>{
         return(
-           <>
+           <div>
 
            <PostCard  
            username = {post.username}
            imageUrl={API + post.pictures}
             postContent={post.content}
-                
+
             />
           
-           </>
+           </div>
         )
     })
     
 
     
     return(
-        // <div>{showPosts}</div>
-        <div>{showPosts}</div>
-        // <div>
-        //     {imageUrl}
-        //     {postContent}
-        // </div>
+      
+       
+
+         <div className="container">
+            <div className="gallery">
+                <div className="gallery-item" tabIndex="0">
+                <div className="gallery-image">{showPosts}</div>
+                </div>
+            </div>
+        </div>
+        
     )
 }
 export default DisplayImage

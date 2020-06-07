@@ -8,6 +8,8 @@ const Home =()=>{
     const API = apiURL()
     const {currentUser, token} = useContext(AuthContext)
     const [posts, setPosts] = useState([])
+    let email = currentUser.email
+    let user_id = currentUser.id
 
 
 
@@ -47,7 +49,11 @@ const Home =()=>{
     
     return(
         // <div>{showPosts}</div>
-        <div>{showPosts}</div>
+        
+        <div>
+        <h1> Look at your friend's Posts </h1>
+        {showPosts}
+        </div>
     )
 }
 export default Home

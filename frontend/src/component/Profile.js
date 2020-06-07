@@ -81,19 +81,45 @@ import DisplayImage from "./DisplayImage"
        
         return(
 
-        <div className="form">
-            <p>Hello {user.username} </p>
+  
 
-            <form onSubmit={handleNewPost}>
+            <div className="container">
+                <div className="profile">
+                    
+                    
+                <img src="https://images.unsplash.com/photo-1513721032312-6a18a42c8763?w=152&h=152&fit=crop&crop=faces" alt=""/>
+                </div>
 
-            <input className="file" type = "file" onChange={onSelectImage}/>
-            <input className="content" type="text" {...content}/>
-            <input type="submit"/>
+				<h1 className="profile-user-name">{user.username}</h1>
+                <form onSubmit={handleNewPost} className="profile-user-settings">
 
-            </form>
-            <div className="posts"><DisplayImage/></div>
-                   
-        </div>
+
+			 <input className="file" placeholder= "hello" type = "file" onChange={onSelectImage}/>
+                {/* <input placeholder = "Enter Caption" className="content" type="text" {...content}/> */}
+                <button type="submit" className="btn profile-edit-btn">Add Picture</button>
+
+			    </form>
+
+                <div className="profile-stats">
+
+				<ul>
+					<li><span className="profile-stat-count">164</span> posts</li>
+					<li><span className="profile-stat-count">188</span> followers</li>
+					<li><span className="profile-stat-count">206</span> following</li>
+				</ul>
+
+            <div className="profile-bio">
+			<p><span className="profile-real-name">Welcome To</span> {user.username}'s finstagram account!</p>
+			</div>
+
+            <DisplayImage/>
+			
+            </div>
+             
+            </div>
+
+        
+       
         )
 
     }
