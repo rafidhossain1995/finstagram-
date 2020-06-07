@@ -1,4 +1,5 @@
 const db = require("../DB/index");
+const upload = require("./imageUploader")
 const getPosts = async (req, res, next) => {
   try {
     let posts = await db.any("SELECT * FROM posts ORDER BY id DESC");
@@ -19,7 +20,7 @@ const getPosts = async (req, res, next) => {
 const getUsersPosts = async (req, res, next) => {
   try {
     let posts = await db.any(
-      "SELECT * FROM posts WHERE user_id=$1 ORDER BY id DESC",
+      "SELECT * FROM posts WHERE user_id=$1",
       req.params.id
     );
     res.status(200).json({
@@ -77,18 +78,30 @@ const editPost = async (req, res, next) => {
   }
 };
 const createPost = async (req, res, next) => {
-  try {
-      let photo = await db.one(`INSERT INTO posts (user_id, pictures) VALUES($1, $2) RETURNING *`, [req.body.id, req.body.pictures]);
-      res.status(200).json({
-          status: 'success',
-          message: 'created new photo',
-          payload: photo
-      });
-  } catch(error) {
-      res.status(400).json({
-          status: 'error',
-          message: 'no new pics'
-      });
+  try{
+    upload(req, res, err=>{
+      try{
+        const {user_id, content} = req.body
+        let pictures = '/uploads/' + req.file.filename
+        db.one(`INSERT INTO posts (user_id, pictures, content) VALUES($1, $2, $3) RETURNING *`, [user_id, pictures, content])
+        .then(done=>{
+          console.log('then');
+          res.status(200).json({
+            status:'success',
+            post: done,
+            message: 'created new photo'
+          })
+        })
+      }catch(err){
+        console.log(err)
+        next(err)
+      }
+    })
+  }catch(err){
+    console.log(err)
+     next(err)
   }
+
+  
 }
 module.exports = { getPosts, getUsersPosts, deletePost, editPost, createPost };

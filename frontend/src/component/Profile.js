@@ -7,6 +7,9 @@ import { apiURL } from "../utility/apiURL"
 import "../CSS/Profile.css"
 import firebase from "../firebase"
 import {storage} from "../firebase"
+import { useInputs } from "../utility/InputHooks"
+import DisplayImage from "./DisplayImage"
+
 
     const Profile = ()=>{
         const [user, setUser] = useState([])
@@ -14,10 +17,15 @@ import {storage} from "../firebase"
         const [url, setUrl] = useState("")
         const [progress, setProgress] = useState(0)
         const [error, setError] = useState("")
+        const content = useInputs("")
+        const[file, setFile] = useState([])
+        const [postImage, setPostImagePath] = useState([])
+
         const API = apiURL()
         const {token} = useContext(AuthContext)
         const {currentUser} = useContext(AuthContext)
         let email = currentUser.email
+        let id = currentUser.uid
 
         useEffect(() => {
             
@@ -35,61 +43,106 @@ import {storage} from "../firebase"
         }
         fetchData();
     }, [API])
-    debugger
 
-        const handleChange =(e)=>{
-            const file = e.target.files[0]
-            if(file){
-                const fileType = file["type"]
-                const isImage = ["image/gif", "image/jpeg", "image/png"]
 
-                if(isImage.includes(fileType)){
-                    setError("")
-                    setProfilePic(file)
-                } else{
-                    setError("Please Select an Image")
-                }
+    //     const handleChange =(e)=>{
+    //         const file = e.target.files[0]
+    //         if(file){
+    //             const fileType = file["type"]
+    //             const isImage = ["image/gif", "image/jpeg", "image/png"]
 
-            }else{
+    //             if(isImage.includes(fileType)){
+    //                 setError("")
+    //                 setProfilePic(file)
+    //             } else{
+    //                 setError("Please Select an Image")
+    //             }
+
+    //         }else{
                 
-            }
-        }
+    //         }
+    //     }
 
-        const handleUpdate = ()=>{
-            if(profilePic){
-               let storageRef = firebase.storage().ref('profile_pictures/' + profilePic.name).put(profilePic)
-               storageRef.on("state_changed", snapshot=>{
-                   const progress = Math.round(
-                       (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-                   )
-                   setProgress(progress)
-               },
-               error=>{
-                    setError(error)
-               },
-                ()=>{
+    //     const handleUpdate = ()=>{
+    //         if(profilePic){
+    //            let storageRef = firebase.storage().ref('profile_pictures/' + profilePic.name).put(profilePic)
+    //            storageRef.on("state_changed", snapshot=>{
+    //                const progress = Math.round(
+    //                    (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+    //                )
+    //                setProgress(progress)
+    //            },
+    //            error=>{
+    //                 setError(error)
+    //            },
+    //             ()=>{
    
-                    firebase.storage().ref("profile_pictures")
-                    .child(profilePic.name)
-                    .getDownloadURL()
-                    .then(url =>{
-                        axios.post(`${API}/posts`,{
-                            pictures: url,
-                            id: currentUser.id
-                        })
-                        setUrl(url)
-                    })
-               }
+    //                 firebase.storage().ref("profile_pictures")
+    //                 .child(profilePic.name)
+    //                 .getDownloadURL()
+    //                 .then(url =>{
+    //                     axios.post(`${API}/posts`,{
+    //                         pictures: url,
+    //                         id: currentUser.id
+    //                     })
+    //                     setUrl(url)
+    //                 })
+    //            }
                
-               )
+    //            )
                 
-            }else{
-                setError("Error please choose an image to upload")
-            }
-        }
+    //         }else{
+    //             setError("Error please choose an image to upload")
+    //         }
+    //     }
 
         
+            
+    //         const fetchPosts = async () => {  
+               
+    //                     let res = await axios({
+    //                     method: "get", 
+    //                     url: `${API}/posts/${id}`,
+    //                     headers: {
+    //                         'AuthToken': token
+    //                     }
+    //                 })
+                    
+    //             setUrl(url);
+    //         }
+    //         fetchPosts();
+    //         debugger
+    
+   
         
+        const onSelectImage = (e)=>{
+            e.preventDefault()
+            setFile(e.target.files[0])
+        }
+
+        const handleNewPost = async (e)=>{ 
+            try{
+                e.preventDefault()
+                const formData = new FormData()
+                formData.append("allImages", file)
+                formData.append("content", content.value)
+                const config = {
+                    headers:{
+                        "content-type":"multipart/form-data",
+
+                    }
+                }
+                let newPost = await axios.post(`${API}/posts/`, formData, config)
+                console.log(newPost.data)
+                console.log("new post created")
+                
+
+            }catch(err){
+                console.log(err)
+            }
+        }
+        
+       
 
        
         return(
@@ -97,11 +150,13 @@ import {storage} from "../firebase"
         <div className="form">
             <p>Hello {user.email} </p>
 
-            <div>
-            <input className="file" type = "file" onChange={handleChange}/>
-            <button onClick = {handleUpdate}>Upload Profile</button>
-            </div>
-            <img src={url}/>
+            <form onSubmit={handleNewPost}>
+            <input className="file" type = "file" onChange={onSelectImage}/>
+            <input className="content" type="text" {...content}/>
+            <input type="submit"/>
+            </form>
+            {/* <img src={url}/> */}
+            <div className="posts"><DisplayImage/></div>
 
             <div style = {{height:"100px"}}>
                 {progress > 0 ? <progress value={progress} max ="100"/>: ""}

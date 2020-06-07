@@ -8,6 +8,7 @@ import Profile from "./component/Profile"
 import NavBar from "./component/NavBar"
 import Home from "./component/Home"
 
+
 import Users from "./component/Users"
 import {AuthRoute, ProtectedRoute} from "./utility/routesUtil"
 
@@ -15,7 +16,7 @@ function App() {
   return (
     <div className="App">
     <AuthProvider>
-    {/* <NavBar /> */}
+    <NavBar />
       <Switch>
         <AuthRoute exact path={"/"}>
           <SignUp />

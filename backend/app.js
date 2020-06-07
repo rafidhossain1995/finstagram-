@@ -4,14 +4,17 @@ const bodyParser = require('body-parser');
 require('dotenv').config();
 const app = express(); 
 const PORT = process.env.PORT
+const path =  require('path')
 
 const usersRouter = require('./Routes/userRoutes')
 const postRouter = require('./Routes/postRoutes')
 
 
+app.use(express.static(path.resolve(__dirname, "./public")));
 app.use(cors());
 app.use(bodyParser.urlencoded({extended: false}));app.use(bodyParser.json());
 app.use('/posts', postRouter);
+
 
 app.use("/users", usersRouter)
 app.use((err, req, res, next) => {

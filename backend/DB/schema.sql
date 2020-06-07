@@ -10,15 +10,14 @@ CREATE TABLE users(
 id VARCHAR PRIMARY KEY,
 email VARCHAR,
 username VARCHAR,
-password VARCHAR,
-
+password VARCHAR
 );
 
 CREATE TABLE posts(
 id SERIAL PRIMARY KEY,
 user_id VARCHAR REFERENCES users(id),
-pictures VARCHAR
--- captions VARCHAR
+pictures VARCHAR,
+content VARCHAR
 );
 
 
