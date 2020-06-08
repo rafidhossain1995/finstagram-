@@ -35,7 +35,7 @@ const { currentUser } = useContext(AuthContext);
             <div className="home-body">
             <NavLink to ={"/home"}className="insta-logo">Instagram</NavLink>
                 <NavLink to={"/home"} className="home" >Home</NavLink>
-                <NavLink to={"/users"} className="home">Show All Users</NavLink>
+                <NavLink to={"/users"} className="community">Show All Users</NavLink>
                 <NavLink to = {"/profile"} className="profile">Profile</NavLink>
                 
                 <button className="logout" onClick = {logout}>Logout</button>  

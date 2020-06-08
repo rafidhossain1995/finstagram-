@@ -13,6 +13,7 @@ email VARCHAR,
 username VARCHAR,
 password VARCHAR
 
+
 );
 
 CREATE TABLE posts(
@@ -23,9 +24,9 @@ content VARCHAR
 );
 
 CREATE TABLE comments(
-    id SERIAL PRIMARY KEY,
-    commenters_id VARCHAR REFERENCES users(id) ON DELETE CASCADE,
-    post_id INT REFERENCES posts(id) ON DELETE CASCADE,
-    content VARCHAR
+id SERIAL PRIMARY KEY,
+commenters_id VARCHAR REFERENCES users(id) ON DELETE CASCADE,
+post_id INT REFERENCES posts(id) ON DELETE CASCADE,
+content TEXT
 
 );

@@ -11,7 +11,11 @@
     margin-left: 10px;
     
 }
-
+.community{
+    content: url("../Pictures/group.png");
+    width: 40px;
+    margin-left: 10px;
+}
 .logout{
     width: 50px;
     margin-left: 35px;

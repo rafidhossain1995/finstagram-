@@ -105,4 +105,41 @@ const createPost = async (req, res, next) => {
 
   
 }
-module.exports = { getPosts, getUsersPosts, deletePost, editPost, createPost };
+
+const getCommentsByPosts = async (req, res, next) => {
+  try {
+      let commentsByPosts = await db.any('SELECT * FROM Comments WHERE photo_id = $1', [req.params.posts_id]);
+      res.status(200).json({
+          status: 'success',
+          message: "got all comments",
+          payload: commentsByPosts
+      })
+  } catch(error) {
+      res.status(400).json({
+          status: 'error',
+          message: 'No Photos'
+      })
+  }
+}
+
+// const addNewComments = asycn(req, res, next)=>{
+//   try {
+//     let newComment = await db.one(`INSERT INTO Comments (commenters_id, photo_id, content) VALUES ('${req.body.commenters_id}', '${req.body.photo_id}', '${req.body.content}') RETURNING *`);
+//     res.status(200).json({
+//         status: 'success',
+//         message: 'new comment added',
+//         payload: newComment
+//     })
+// } catch(error) {
+//     res.status(400).jsom({
+//         status: 'error',
+//         message: 'no new comment'
+//     })
+// }
+// }
+
+
+
+
+
+module.exports = { getPosts, getUsersPosts, deletePost, editPost, createPost};

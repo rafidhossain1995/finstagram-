@@ -3,7 +3,7 @@ import axios from "axios"
 import {AuthContext} from "../providers/AuthContext"
 import { apiURL } from "../utility/apiURL"
 import PostCard from "./PostCard"
-
+import Comment from "./Comments"
 const Home =()=>{
     const API = apiURL()
     const {currentUser, token} = useContext(AuthContext)
@@ -15,7 +15,7 @@ const Home =()=>{
     useEffect(() => {
             
         const allPosts= async () => {  
-                    debugger
+                   
                     let res = await axios({
                     method: "get", 
                     url: `${API}/posts/`,
@@ -52,6 +52,7 @@ const Home =()=>{
         <div>
         <h1> Look at your friend's Posts </h1>
         {showPosts}
+        
     
         </div>
     )

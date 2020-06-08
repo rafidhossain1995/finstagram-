@@ -121,6 +121,12 @@ img{
 }
 
 .content{
-    height: 1%;
+    width: 400px;
+    height: 10%;
+    margin: 10px auto;
+    background-color: #fff;
+    border: 2px solid #e6e6e6;
+    padding: 40px 50px;
+    /* /* height: 300px; */
 }
 

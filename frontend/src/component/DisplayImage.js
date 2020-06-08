@@ -3,6 +3,7 @@ import axios from "axios"
 import {AuthContext} from "../providers/AuthContext"
 import { apiURL } from "../utility/apiURL"
 import PostCard from "./PostCard"
+import Comments from "./Comments"
 import "../CSS/DisplayImage.css"
 
 const DisplayImage =()=>{
@@ -39,6 +40,7 @@ const DisplayImage =()=>{
            username = {post.username}
            imageUrl={API + post.pictures}
            postContent={post.content}
+          
             />
           
            </div>
@@ -56,6 +58,7 @@ const DisplayImage =()=>{
             <div className="gallery">
                 <div className="gallery-item" tabIndex="0">
                 <div className="gallery-image">{showPosts}</div>
+             
                 </div>
             </div>
         </div>

@@ -16,7 +16,7 @@ img {
 
 .heart{
     content: url("../Pictures/heart-png.png");
-    width: 30px;
+    width: 40px;
     height: 30px;
     margin-left: 10px;
 }
@@ -34,5 +34,6 @@ img {
     margin-left: 10px;
 }
 .iconz{
-    display: flex
+    display: flex;
+    margin-top: 10px;
 }

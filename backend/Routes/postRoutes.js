@@ -9,4 +9,7 @@ posts.post("/:user_id", createPost);
 posts.delete("/:id", deletePost);
 
 posts.patch("/:id", editPost);
+
+
+
 module.exports = posts;

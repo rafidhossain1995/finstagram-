@@ -1,6 +1,6 @@
 import React from "react"
 import "../CSS/PostCard.css"
-
+import Comments from "./Comments"
 
 const PostCard = ({imageUrl, postContent})=>{
     const handleStyle = {
@@ -9,7 +9,7 @@ const PostCard = ({imageUrl, postContent})=>{
         border: "2px solid black"
         
     }
-    debugger
+
     return(
         <div className="pic">
 
@@ -20,6 +20,8 @@ const PostCard = ({imageUrl, postContent})=>{
             <h3 className="heart">heart</h3>
             <h3 className="comment">Comment</h3>
             <h3 className="follow">follow</h3>
+            <br/>
+            {/* <Comments/> */}
             </div>
           
 
