@@ -6,7 +6,7 @@ import SignUp from "./component/SignUp";
 import AuthProvider from "./providers/AuthContext"
 import Profile from "./component/Profile"
 import NavBar from "./component/NavBar"
-import Home from "./component/Home"
+import Home from "./component/Home";
 
 
 import Users from "./component/Users"
