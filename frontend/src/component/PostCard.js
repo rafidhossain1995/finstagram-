@@ -20,8 +20,9 @@ const PostCard = ({imageUrl, postContent})=>{
             <h3 className="heart">heart</h3>
             <h3 className="comment">Comment</h3>
             <h3 className="follow">follow</h3>
+
             <br/>
-            {/* <Comments/> */}
+            <Comments/>
             </div>
           
 

@@ -9,6 +9,7 @@ import firebase from "../firebase"
 import {storage} from "../firebase"
 import { useInputs } from "../utility/InputHooks"
 import DisplayImage from "./DisplayImage"
+import Comments from "./Comments"
 
 
     const Profile = ()=>{
@@ -106,6 +107,7 @@ import DisplayImage from "./DisplayImage"
 					<li><span className="profile-stat-count">164</span> posts</li>
 					<li><span className="profile-stat-count">188</span> followers</li>
 					<li><span className="profile-stat-count">206</span> following</li>
+
 				</ul>
 
             <div className="profile-bio">
@@ -113,6 +115,7 @@ import DisplayImage from "./DisplayImage"
 			</div>
 
             <DisplayImage/>
+            
 			
             </div>
              

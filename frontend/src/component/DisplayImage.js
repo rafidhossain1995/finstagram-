@@ -40,7 +40,7 @@ const DisplayImage =()=>{
            username = {post.username}
            imageUrl={API + post.pictures}
            postContent={post.content}
-          
+            
             />
           
            </div>
@@ -58,6 +58,7 @@ const DisplayImage =()=>{
             <div className="gallery">
                 <div className="gallery-item" tabIndex="0">
                 <div className="gallery-image">{showPosts}</div>
+                
              
                 </div>
             </div>

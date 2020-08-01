@@ -3,7 +3,7 @@ const db = require("../DB/index");
 
 const addComment = async (req, res, next) => {
     try {
-      let { post_id, commenter_id } = req.params;
+      let { post_id, commenters_id } = req.params;
       let { content } = req.body;
       let comment = await db.one(
         "INSERT INTO comments (post_id, commenters_id, content) VALUES ($1, $2, $3) RETURNING *",
