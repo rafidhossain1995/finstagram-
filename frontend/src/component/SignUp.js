@@ -22,9 +22,11 @@ const SignUp = () => {
     e.preventDefault();
     try {    
         let res = await signup(email, password);
+        debugger
         await axios.post(`${API}/users`, {id: res.user.uid, email, username, password });
     } catch (err) {
-      console.log(err)
+      // console.log(err)
+      debugger
     }
   };
 

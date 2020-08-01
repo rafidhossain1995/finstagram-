@@ -106,7 +106,7 @@ const createUser = async (req, res, next) => {
 //                 payload: userEmail
 //             });
 //         } catch(err) {
-//            console.log(err)
+//            console.log(err)d
 //         }
 // }
 
@@ -123,9 +123,9 @@ const getSingleUser = async (req, res, next) => {
     }
 }
 
+module.exports = {getAllUsers, loginUser, deleteUser, editUser, createUser, getSingleUser}
 
 
-module.exports = {loginUser, deleteUser, editUser, createUser, getAllUsers, getSingleUser}
 
 
 

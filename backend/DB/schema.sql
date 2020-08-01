@@ -1,11 +1,11 @@
--- DROP DATABASE IF EXISTS instagram_db;
--- CREATE DATABASE instagram_db;
+DROP DATABASE IF EXISTS instagram_db;
+CREATE DATABASE instagram_db;
 
--- \c instagram_db;
+\c instagram_db;
 
-DROP TABLE IF EXISTS posts;
 DROP TABLE IF EXISTS users; 
 DROP TABLE IF EXISTS comments;
+DROP TABLE IF EXISTS posts;
 
 CREATE TABLE users(
 id VARCHAR PRIMARY KEY,
@@ -27,6 +27,7 @@ CREATE TABLE comments(
 id SERIAL PRIMARY KEY,
 commenters_id VARCHAR REFERENCES users(id) ON DELETE CASCADE,
 post_id INT REFERENCES posts(id) ON DELETE CASCADE,
-content TEXT
+content TEXT,
+time TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 
 );
