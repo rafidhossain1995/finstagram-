@@ -3,7 +3,7 @@ import axios from "axios"
 import {AuthContext} from "../providers/AuthContext"
 import { apiURL } from "../utility/apiURL"
 import PostCard from "./PostCard"
-import Comment from "./Comments"
+import CreateComment from "./CreateComment"
 const Home =()=>{
     const API = apiURL()
     const {currentUser, token} = useContext(AuthContext)
@@ -38,8 +38,9 @@ const Home =()=>{
            <PostCard  
            username = {post.username}
            imageUrl={API + post.pictures}
-            
-            postContent={post.content}/>
+           postContent={post.content}
+           post_id = {post.id}
+           />
           
            </>
         )

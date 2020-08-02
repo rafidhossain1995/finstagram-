@@ -8,14 +8,14 @@ const path =  require('path')
 
 const usersRouter = require('./Routes/userRoutes')
 const postRouter = require('./Routes/postRoutes')
-// const commentsRouter = require('./Routes/commentRoutes')
+const commentsRouter = require('./Routes/commentRoutes')
 
 
 app.use(express.static(path.resolve(__dirname, "./public")));
 app.use(cors());
 app.use(bodyParser.urlencoded({extended: false}));app.use(bodyParser.json());
 app.use('/posts', postRouter);
-// app.use('/comments', commentsRouter)
+app.use('/comments', commentsRouter)
 
 app.use("/users", usersRouter)
 app.use((err, req, res, next) => {

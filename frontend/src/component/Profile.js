@@ -9,7 +9,7 @@ import firebase from "../firebase"
 import {storage} from "../firebase"
 import { useInputs } from "../utility/InputHooks"
 import DisplayImage from "./DisplayImage"
-import Comments from "./Comments"
+import Comments from "./CreateComment"
 
 
     const Profile = ()=>{
@@ -67,6 +67,7 @@ import Comments from "./Comments"
                 console.log(newPost.data)
                 console.log("new post created")
                 window.location.reload()
+                // see if app still works if it doesn't have to reload. 
                 
 
                 

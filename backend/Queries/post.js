@@ -43,7 +43,7 @@ const deletePost = async (req, res, next) => {
     let post = ("DELETE FROM posts WHERE id=$1 RETURNING *", postId);
     res.status(200).json({
       status: "success",
-      message: "all users posts",
+      message: "Users post deleted",
       payload: post,
     });
   } catch (err) {

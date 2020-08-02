@@ -1,8 +1,8 @@
 import React from "react"
 import "../CSS/PostCard.css"
-import Comments from "./Comments"
+import CreateComment from "./CreateComment"
 
-const PostCard = ({imageUrl, postContent})=>{
+const PostCard = ({imageUrl, postContent, post_id})=>{
     const handleStyle = {
         height:"300px",
         width:"300px",
@@ -22,7 +22,7 @@ const PostCard = ({imageUrl, postContent})=>{
             <h3 className="follow">follow</h3>
 
             <br/>
-            <Comments/>
+            <CreateComment post_id={post_id}/>
             </div>
           
 
