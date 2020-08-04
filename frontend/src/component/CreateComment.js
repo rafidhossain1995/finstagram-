@@ -21,9 +21,10 @@ const CreateComment = ({post_id})=>{
                 
             }
         })
+        window.location.reload()
     }
  
-    
+   
 
     return(
         <form onSubmit= {handleSubmit}>

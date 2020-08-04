@@ -1,6 +1,7 @@
 import React from "react"
 import "../CSS/PostCard.css"
 import CreateComment from "./CreateComment"
+import DisplayComment from "./CommentsIndex"
 
 const PostCard = ({imageUrl, postContent, post_id})=>{
     const handleStyle = {
@@ -23,6 +24,7 @@ const PostCard = ({imageUrl, postContent, post_id})=>{
 
             <br/>
             <CreateComment post_id={post_id}/>
+            <DisplayComment post_id={post_id}/>
             </div>
           
 
