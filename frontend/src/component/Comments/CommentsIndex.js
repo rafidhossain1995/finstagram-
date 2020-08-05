@@ -1,8 +1,8 @@
 import React, {useState, useEffect, useContext} from "react"
 import axios from "axios"
-import {AuthContext} from "../providers/AuthContext"
-import { apiURL } from "../utility/apiURL"
-import "../CSS/Comments.css"
+import {AuthContext} from "../../providers/AuthContext"
+import { apiURL } from "../../utility/apiURL"
+import "../../CSS/Comments.css"
 
 const CommentsIndex = ({post_id})=>{
     const handleStyle = {
@@ -25,7 +25,7 @@ const CommentsIndex = ({post_id})=>{
                 }
             })
             debugger
-            setComments(res.data.body.comments)
+            // setComments(res.data.body.comments)
             console.log(res.data)
         }
         showComment()

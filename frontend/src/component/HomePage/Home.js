@@ -1,13 +1,15 @@
 import React, { useContext, useEffect, useState } from "react"
 import axios from "axios"
-import {AuthContext} from "../providers/AuthContext"
-import { apiURL } from "../utility/apiURL"
-import PostCard from "./PostCard"
-import CreateComment from "./CreateComment"
+import {AuthContext} from "../../providers/AuthContext"
+import { apiURL } from "../../utility/apiURL"
+import HomePostCard from "./HomePostCard"
+import CreateComment from "../Comments/CreateComment"
+// import post from "../../../../backend/Queries/post"
 const Home =()=>{
     const API = apiURL()
     const {currentUser, token} = useContext(AuthContext)
     const [posts, setPosts] = useState([])
+    const [username, setUsername] = useState([])
 
 
 
@@ -34,10 +36,9 @@ const Home =()=>{
     const showPosts = posts.map((post)=>{
         return(
            <>
-
-           <PostCard  
-           username = {post.username}
-           imageUrl={API + post.pictures}
+            {post.username}
+           <HomePostCard  
+           homeImageUrl={API + post.pictures}
            postContent={post.content}
            post_id = {post.id}
            />
@@ -52,6 +53,7 @@ const Home =()=>{
         
         <div>
         <h1> Look at your friend's Posts </h1>
+       
         {showPosts}
         
     

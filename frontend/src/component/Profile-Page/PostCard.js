@@ -1,12 +1,12 @@
 import React from "react"
-import "../CSS/PostCard.css"
-import CreateComment from "./CreateComment"
-import DisplayComment from "./CommentsIndex"
+import "../../CSS/PostCard.css"
+import CreateComment from "../Comments/CreateComment"
+import DisplayComment from "../Comments/CommentsIndex"
 
-const PostCard = ({imageUrl, postContent, post_id})=>{
+const PostCard = ({imageUrl, postContent, username})=>{
     const handleStyle = {
-        height:"300px",
-        width:"300px",
+        height:"100px",
+        width:"100px",
         border: "2px solid black"
         
     }
@@ -15,6 +15,7 @@ const PostCard = ({imageUrl, postContent, post_id})=>{
         <div className="pic">
 
         <div className="picture">
+            <h3>{username}</h3>
             <img src={imageUrl} style={handleStyle}/>
             <h2>{postContent}</h2>
             <div className="iconz">

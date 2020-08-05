@@ -1,16 +1,16 @@
 import React, { useContext, useEffect, useState } from "react"
 import axios from "axios"
-import {AuthContext} from "../providers/AuthContext"
-import { apiURL } from "../utility/apiURL"
-import PostCard from "./PostCard"
-import CreateComment from "./CreateComment"
-import DisplayComment from "./CommentsIndex"
+import {AuthContext} from "../../providers/AuthContext"
+import { apiURL } from "../../utility/apiURL"
+import HomePostCard from "./HomePostCard"
+import CreateComment from "../Comments/CreateComment"
+import DisplayComment from "../Comments/CommentsIndex"
 import "../CSS/DisplayImage.css"
 
 const DisplayImage =()=>{
     const API = apiURL()
     const {currentUser, token} = useContext(AuthContext)
-    const [posts, setPosts] = useState([])
+    const [homePosts, setHomePosts] = useState([])
 
     let user_id = currentUser.id
 
@@ -26,28 +26,28 @@ const DisplayImage =()=>{
                     }
                 })
                 
-            setPosts(res.data.payload);
+            setHomePosts(res.data.payload);
             console.log(res.data)
         }
         createPosts();
     }, [API])
     
     
-    const showPosts = posts.map((post)=>{
+    const showHomePosts = homePosts.map((homePost)=>{
         return(
            <div>
 
-           <PostCard  
-           username = {post.username}
-           imageUrl={API + post.pictures}
-           postBio={post.bio}
+           <HomePostCard  
+           username = {homePost.username}
+           homeImageUrl={API + homePost.pictures}
+           postContent={homePost.content}
             
             />
-            {/* <CreateComment/>
-            <DisplayComment/> */}
           
            </div>
         )
+
+         
     })
     
     
@@ -60,7 +60,7 @@ const DisplayImage =()=>{
          <div className="container">
             <div className="gallery">
                 <div className="gallery-item" tabIndex="0">
-                <div className="gallery-image">{showPosts}</div>
+                <div className="gallery-image">{showHomePosts}</div>
                 
              
                 </div>

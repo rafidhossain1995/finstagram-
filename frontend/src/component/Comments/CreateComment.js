@@ -1,9 +1,9 @@
 import React, {useState, useContext} from "react"
 import axios from "axios"
-import {AuthContext} from "../providers/AuthContext"
-import { apiURL } from "../utility/apiURL"
-import "../CSS/Comments.css"
-
+import {AuthContext} from "../../providers/AuthContext"
+import { apiURL } from "../../utility/apiURL"
+import "../../CSS/Comments.css"
+import CommentsIndex from "./CommentsIndex"
 
 
 const CreateComment = ({post_id})=>{
@@ -30,6 +30,7 @@ const CreateComment = ({post_id})=>{
         <form onSubmit= {handleSubmit}>
         <input type="text" className="comment-box" value={comment} onChange={(e)=>setComment(e.target.value)}/>
         <button>Post Your Comment</button>
+         <CommentsIndex/>    
        </form>
         
         

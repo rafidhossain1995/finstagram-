@@ -4,9 +4,9 @@ import { Route, Switch } from "react-router-dom";
 import Login from "./component/Login"
 import SignUp from "./component/SignUp";
 import AuthProvider from "./providers/AuthContext"
-import Profile from "./component/Profile"
+import Profile from "../src/component/Profile-Page/Profile"
 import NavBar from "./component/NavBar"
-import Home from "./component/Home";
+import Home from "./component/HomePage/Home";
 
 
 import Users from "./component/Users"
