@@ -87,10 +87,10 @@ import DisplayComment from "./CommentsIndex"
   
 
             <div className="container">
-                <div className="profile">
+                <div className="profile-pic">
                     
                     
-                <img src="https://images.unsplash.com/photo-1513721032312-6a18a42c8763?w=152&h=152&fit=crop&crop=faces" alt=""/>
+                <img src={user.profile_pic} className="profile-img"/>
                 </div>
 
 				<h1 className="profile-user-name">{user.username}</h1>

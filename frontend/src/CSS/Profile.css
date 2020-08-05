@@ -1,4 +1,16 @@
 
+
+.profile-pic{
+    width: 240px;
+    margin-left: 10px;
+    display: flex;
+    margin-right: 3rem;
+   
+}
+
+.profile-img{
+    border-radius: 50%;
+}
 :root {
     font-size: 10px;
 }
