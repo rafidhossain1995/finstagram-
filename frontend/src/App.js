@@ -30,13 +30,13 @@ function App() {
           <Users />
         </ProtectedRoute>
 
-        <Route path="/profile">
+        <ProtectedRoute path="/profile">
           <Profile />
-        </Route>
+        </ProtectedRoute>
 
-        <Route path="/home">
+        <ProtectedRoute path="/home">
           <Home />
-        </Route>
+        </ProtectedRoute>
 
       </Switch>
     </AuthProvider>

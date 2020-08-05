@@ -3,11 +3,12 @@ import "../../CSS/PostCard.css"
 import CreateComment from "../Comments/CreateComment"
 import DisplayComment from "../Comments/CommentsIndex"
 
-const PostCard = ({imageUrl, postContent, username})=>{
+const PostCard = ({imageUrl, postContent, username, post_id})=>{
     const handleStyle = {
-        height:"100px",
-        width:"100px",
+        height:"200px",
+        width:"200px",
         border: "2px solid black"
+        
         
     }
 
@@ -16,15 +17,13 @@ const PostCard = ({imageUrl, postContent, username})=>{
 
         <div className="picture">
             <h3>{username}</h3>
-            <img src={imageUrl} style={handleStyle}/>
-            <h2>{postContent}</h2>
+            <img className="pix" src={imageUrl} style={handleStyle}/>
+            <h4>{postContent}</h4>
             <div className="iconz">
-            <h3 className="heart">heart</h3>
-            <h3 className="comment">Comment</h3>
-            <h3 className="follow">follow</h3>
+           
 
             <br/>
-            
+            <CreateComment post_id={post_id}/>
             </div>
           
 

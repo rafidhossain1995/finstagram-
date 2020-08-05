@@ -30,7 +30,7 @@ const CreateComment = ({post_id})=>{
         <form onSubmit= {handleSubmit}>
         <input type="text" className="comment-box" value={comment} onChange={(e)=>setComment(e.target.value)}/>
         <button>Post Your Comment</button>
-         <CommentsIndex/>    
+         <CommentsIndex post_id={post_id}/>    
        </form>
         
         

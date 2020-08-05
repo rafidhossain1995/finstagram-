@@ -6,9 +6,10 @@ import "../../CSS/Comments.css"
 
 const CommentsIndex = ({post_id})=>{
     const handleStyle = {
-        height:"100px",
-        width:"200px",
-        border: "2px solid red"
+        height:"50px",
+        width:"250px",
+        border: "2px solid red",
+        margintop: "5%"
         
     }
     const API = apiURL()
@@ -25,7 +26,7 @@ const CommentsIndex = ({post_id})=>{
                 }
             })
             debugger
-            // setComments(res.data.body.comments)
+            setComments(res.data.body.comments)
             console.log(res.data)
         }
         showComment()
@@ -34,7 +35,7 @@ const CommentsIndex = ({post_id})=>{
 
     const showAllComments = comments.map((comment)=>{
         return(
-        <ul>
+        <ul className="ul">
             <li style={handleStyle}> 
             {comment.username} commented {comment.content}
             </li>
@@ -47,10 +48,10 @@ const CommentsIndex = ({post_id})=>{
 
 
     return(
-        <div className="container">
+        <div className="containerComments">
             <div className="gallery">
                 <div className="gallery-item" tabIndex="0">
-                <div className="gallery-image">{showAllComments}</div>
+                <div className="gallery-image" key="comment">{showAllComments}</div>
                 </div>
             </div>
         </div>

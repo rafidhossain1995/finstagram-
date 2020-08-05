@@ -1,15 +1,25 @@
-/* .gallery {
+.galleryImage {
     display: grid;
-    grid-template-columns: repeat(8, 1fr);
-    grid-template-rows: repeat(8, 5vw);
-    grid-gap: 15px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 2em;
+    justify-content: center;
+    margin-left: 50%;
+    
    
-} */
+}
+.showPostDiv{
+ height: 500px;
 
-/* .gallery-item {
-    position: relative;
-    flex: 1 0 22rem;
-    margin: 1rem;
-
-    cursor: pointer;
-} */
+} 
+.gallery-item {
+   height: 100px;
+}
+@media(max-width: 1355px){
+    .container{
+        margin: auto;
+        padding: 0;
+        top: 0; 
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+}

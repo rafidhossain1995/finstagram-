@@ -36,16 +36,15 @@ const DisplayImage =()=>{
     const showPosts = posts.map((post)=>{
         debugger
         return(
-           <div>
+           <div className="showPostDiv">
 
            <PostCard  
            username = {post.username}
            imageUrl={API + post.pictures}
            postContent={post.content}
-            
+           post_id={post.id}
             />
-            {/* <CreateComment/>
-            <DisplayComment/> */}
+          
           
            </div>
         )
@@ -59,9 +58,9 @@ const DisplayImage =()=>{
        
 
          <div className="container">
-            <div className="gallery">
+            <div className="galleryDisplay">
                 <div className="gallery-item" tabIndex="0">
-                <div className="gallery-image">{showPosts}</div>
+                <div className="galleryImage">{showPosts}</div>
                 
              
                 </div>

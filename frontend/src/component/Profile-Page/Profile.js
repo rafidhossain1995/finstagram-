@@ -86,7 +86,7 @@ import DisplayComment from "../Comments/CommentsIndex"
 
   
 
-            <div className="container">
+            <div className="profileContainer">
                 <div className="profile-pic">
                     
                     
@@ -94,9 +94,9 @@ import DisplayComment from "../Comments/CommentsIndex"
                 </div>
 
 				<h1 className="profile-user-name">{user.username}</h1>
-                <form onSubmit={handleNewPost} className="profile-user-settings">
+                <form onSubmit={handleNewPost} className="profileUserSettings">
 
-
+                <h1 className="postPicsHere">Post Your Pictures Here!</h1>
 			    <input className="file" placeholder= "hello" type = "file" onChange={onSelectImage}/>
                 <input placeholder = "Enter Caption" className="content" type="text" {...content}/>
                 <button type="submit" className="btn profile-edit-btn">Add Picture</button>

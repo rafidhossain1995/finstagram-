@@ -1,14 +1,14 @@
 .home{
     content: url("../Pictures/home.png");
     width: 70px;
-    margin-left: 10px;
+    margin-left: -30%;
   
 }
 
 .profile{
     content: url("../Pictures/Instagram-logo.png");
     width: 40px;
-    margin-left: 10px;
+    /* margin-left: 10px; */
     
 }
 .community{
@@ -18,7 +18,7 @@
 }
 .logout{
     width: 50px;
-    margin-left: 35px;
+    margin-left: 2%;
 }
 .Nav{
     background-color: #ffffff;
@@ -29,7 +29,7 @@
       z-index: 2;
       -webkit-transition: height 0.2s ease-in-out;
       transition: height 0.2s ease-in-out;
-      height: 77px;
+      height: 50px;
       
 }
 
@@ -38,7 +38,7 @@
       flex-direction: row;
       height: 77px;
       width: 70%;
-      margin-left: 50%;
+      /* margin-left: 50%; */
       padding: 26px 40px;
      
       
@@ -48,13 +48,16 @@
     display: flex;
     flex-direction: row;
     padding-left: 24px;
-    margin-left: -1000px;
+    margin-left: 0%;
+    margin-top: -20px;
+
+
    
  
 }
 
-.insta-logo{
-    margin-right: 1500px;
+.instaLogo{
+    margin-right: 150%;
     content: url("../Pictures/instagram-navbar.png");
     width: 100px;
     margin-left: 10px;

@@ -1,3 +1,19 @@
 .submit-comment{
     margin-top: 90%;
 }
+
+.containerComments{
+    height: 450px;
+    overflow-y: scroll;
+    margin-left: 10%;
+}
+
+/* .gallery-image{
+    margin-left: 0%;
+    /* margin-top: -20px; */
+    /* height: 1px; */
+/* } */ 
+
+/* .ul{
+    margin-left: -100px;
+} */

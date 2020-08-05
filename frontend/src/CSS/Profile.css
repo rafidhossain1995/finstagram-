@@ -1,7 +1,7 @@
 
 
 .profile-pic{
-    width: 240px;
+    width: 20%;
     margin-left: 10px;
     display: flex;
     margin-right: 3rem;
@@ -27,7 +27,7 @@ img{
     display: block;
 }
 
-.container {
+.profileContainer {
     max-width: 93.5rem;
     margin: 0 auto;
     padding: 0 2rem;
@@ -105,7 +105,7 @@ img{
     width: 25%;
 } 
 .profile-stats{
-    margin-top: 2.3rem;
+    margin-top: -10%;
 }
 
 .profile-stats li{
@@ -114,6 +114,7 @@ img{
     line-height: 1.5;
     margin-right: 4rem;
     cursor: pointer;
+
 }
 .profile-stats li:last-of-type{
     margin-right: 0;
@@ -134,7 +135,6 @@ img{
 }
 
 .content{
-    width: 400px;
     height: 10%;
     margin: 10px auto;
     background-color: #fff;
@@ -143,3 +143,12 @@ img{
     /* /* height: 300px; */
 }
 
+.profileUserSettings{
+    /* float: left; */
+    width: calc(66.666% - 2rem);
+    margin-left: 50%;
+}
+
+.postPicsHere{
+    font-family: Arial, Helvetica, sans-serif;
+}
