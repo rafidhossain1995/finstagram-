@@ -22,6 +22,7 @@ const { currentUser } = useContext(AuthContext);
 				</>
 			);
     }
+    displayButton()
 	};
 
 

@@ -24,6 +24,7 @@ const CommentsIndex = ({post_id})=>{
                     'AuthToken': token
                 }
             })
+            debugger
             setComments(res.data.body.comments)
             console.log(res.data)
         }
