@@ -1,4 +1,4 @@
-import app from 'firebase/app'
+import firebase from 'firebase/app'
 import 'firebase/auth'
 import 'firebase/storage'
 const{
@@ -22,10 +22,11 @@ const config = {
     appId: REACT_APP_APPID,
     measurementId: REACT_APP_MEASUREMENTID,
 }
+firebase.initializeApp(config)
+export const storage = firebase.storage()
+export default firebase
 
-app.initializeApp(config)
 
 
 
 
-export default app

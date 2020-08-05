@@ -1,4 +1,5 @@
 const db = require("../DB/index");
+const upload = require("./imageUploader");
 
 
 const getAllUsers = async (req, res, next) => {
@@ -75,10 +76,10 @@ const editUser = async (req, res, next) => {
 
 const createUser = async (req, res, next) => {
     try {
-      let { id, email,  username} = req.body;
+      let { id, email, username, profile_pic} = req.body;
       let user = await db.one(
-        "INSERT INTO users (id, email, username) VALUES ($1, $2, $3) RETURNING *",
-        [ id, email, username]
+        "INSERT INTO users (id, email, username, profile_pic) VALUES ($1, $2, $3, $4) RETURNING *",
+        [ id, email, username, profile_pic]
       );
       res.status(200).json({
         status: "Success",
@@ -90,7 +91,7 @@ const createUser = async (req, res, next) => {
     } catch (error) {
       res.json({
         status: "Error",
-        message: "Username already exists",
+        message: "Username could not be created",
       });
       next(error);
     }
@@ -123,6 +124,23 @@ const getSingleUser = async (req, res, next) => {
     }
 }
 
+
+// const createProfilePic = async(req, res, next)=>{
+//     try{
+//         upload(req, res, err=>{
+//             try{
+//                 let profile_pic = '/uploads/' + req.file.filename
+
+//             }catch(err){
+//                 console.log(err)
+//                 next(err)
+//             }
+//         })
+//     }catch(err){
+//         console.log(Err)
+//         next(err)
+//     }
+// }
 module.exports = {getAllUsers, loginUser, deleteUser, editUser, createUser, getSingleUser}
 
 

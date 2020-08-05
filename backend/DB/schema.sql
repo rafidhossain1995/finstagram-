@@ -7,13 +7,12 @@ DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS comments;
 DROP TABLE IF EXISTS posts;
 
+
 CREATE TABLE users(
 id VARCHAR PRIMARY KEY,
 email VARCHAR,
 username VARCHAR,
-password VARCHAR
-
-
+profile_pic VARCHAR
 );
 
 CREATE TABLE posts(
@@ -29,5 +28,11 @@ commenters_id VARCHAR REFERENCES users(id) ON DELETE CASCADE,
 post_id INT REFERENCES posts(id) ON DELETE CASCADE,
 content TEXT,
 time TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
-
 );
+
+-- CREATE TABLE profile_pic(
+-- id SERIAL PRIMARY KEY,
+-- users_profile_pic_id VARCHAR REFERENCES users(id) ON DELETE CASCADE,
+-- profile_picture VARCHAR,
+-- time TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+-- );

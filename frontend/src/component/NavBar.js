@@ -21,7 +21,7 @@ const { currentUser } = useContext(AuthContext);
 			<Login/>
 				</>
 			);
-		}
+    }
 	};
 
 

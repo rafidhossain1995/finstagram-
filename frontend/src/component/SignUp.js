@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useInputs } from "../utility/InputHooks"
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
@@ -6,6 +6,8 @@ import "../CSS/SignUp.css";
 import axios from "axios";
 import { signup } from "../utility/firebaseFunction";
 import { apiURL } from "../utility/apiURL";
+import {AuthContext} from "../providers/AuthContext"
+import {storage} from "../firebase"
 const API = apiURL();
 
 const SignUp = () => {
@@ -13,44 +15,61 @@ const SignUp = () => {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [userPic, setUserPic] = useState("");
+  const [profile_pic, setProfile_Pic] = useState("");
   const [loading, setLoading] = useState("");
+  const [image, setImage] = useState(null)
   const history = useHistory();
-  console.log(email,username, password);
+  const content = useInputs("")
+  const [file, setFile] = useState([])
+  const {currentUser} = useContext(AuthContext)
+  const [url, setUrl] = useState("")
+  // let user_id = 1
+  // console.log(email,username, password);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {    
         let res = await signup(email, password);
-        debugger
-        await axios.post(`${API}/users`, {id: res.user.uid, email, username, password });
-    } catch (err) {
-      // console.log(err)
-      debugger
-    }
-  };
-
-
-
-  const uploadPicture = async (e) => {
-    const files = e.target.files;
-
-    const data = new FormData();
-    data.append("file", files[0]);
-    data.append("upload_preset", "instagram_db");
-    data.append("cloud_name", "dhlczyds5");
-    setLoading(true);
-    let res = await fetch(
-      "https://api.cloudinary.com/v1_1/dhlczyds5/image/upload",
-      {
-        method: "Post",
-        body: data,
+        const uploadTask = storage.ref(`image/${image.name}`
+        ).put(image)
+        uploadTask.on(
+      "state_changed",
+      ()=>{
+        storage
+        .ref("image")
+        .child(image.name)
+        .getDownloadURL()
+        .then(url=>{
+          debugger
+          console.log(url)
+         axios.post(`${API}/users`, {id: res.user.uid, email, username, password, profile_pic:url});
+        }).catch(err=>{
+          console.log(err)
+          debugger
+        })
       }
-    );
-    const file = await res.json();
-    setUserPic(file.secure_url);
-    setLoading(false);
+    )
+        
+       
+    } catch (err) {
+      debugger
+    
+    }
+ 
   };
+
+  const handleChange = (e)=>{
+    if(e.target.files[0]){
+      setImage(e.target.files[0])
+    }
+  } 
+
+//  const handleUpload= async ()=>{
+   
+   
+  
+//  }
+ 
   return (
     <div className="main">
       <link
@@ -76,7 +95,7 @@ const SignUp = () => {
                 Sign Up To See Photo And Videos From Your Friends
               </p>
               <div className="sign-up-info">
-                <form onClick={handleSubmit}>
+                <form onSubmit={handleSubmit}>
                   <input
                     type="email"
                     className="form-control"
@@ -98,15 +117,23 @@ const SignUp = () => {
                     placeholder="Password"
                     onChange={(e) => setPassword(e.currentTarget.value)}
                   />
-
-                  <input type="file" onInput={uploadPicture} {...userPic} />
-
+                <input 
+                className="profile_pic" 
+                type="file" 
+                onChange={handleChange} />
+                
+                  
                   <input
                     type="submit"
                     className="btn btn-primary btn-block"
                     placeholder="signup"
                   />
+
+                
                 </form>
+
+                
+              
               </div>
               <p className="terms-conditions">
                 {" "}
