@@ -9,7 +9,8 @@ import firebase from "../firebase"
 import {storage} from "../firebase"
 import { useInputs } from "../utility/InputHooks"
 import DisplayImage from "./DisplayImage"
-import Comments from "./CreateComment"
+import CreateComment from "./CreateComment"
+import DisplayComment from "./CommentsIndex"
 
 
     const Profile = ()=>{
@@ -19,7 +20,7 @@ import Comments from "./CreateComment"
         const [error, setError] = useState("")
         const content = useInputs("")
         const[file, setFile] = useState([])
-        const [postImage, setPostImagePath] = useState([])
+        // const [postImage, setPostImagePath] = useState([])
 
         const API = apiURL()
         const {token} = useContext(AuthContext)
@@ -111,11 +112,13 @@ import Comments from "./CreateComment"
 
 				</ul>
 
-            <div className="profile-bio">
-			<p><span className="profile-real-name">Welcome To</span> {user.username}'s finstagram account!</p>
+            <div className="profile-content">
+			<h2><span className="profile-real-name">Welcome To</span> {user.username}'s finstagram account!</h2>
 			</div>
 
             <DisplayImage/>
+           
+            
             
 			
             </div>

@@ -3,7 +3,8 @@ import axios from "axios"
 import {AuthContext} from "../providers/AuthContext"
 import { apiURL } from "../utility/apiURL"
 import PostCard from "./PostCard"
-import Comments from "./CreateComment"
+import CreateComment from "./CreateComment"
+import DisplayComment from "./CommentsIndex"
 import "../CSS/DisplayImage.css"
 
 const DisplayImage =()=>{
@@ -39,9 +40,11 @@ const DisplayImage =()=>{
            <PostCard  
            username = {post.username}
            imageUrl={API + post.pictures}
-           postContent={post.content}
+           postBio={post.bio}
             
             />
+            {/* <CreateComment/>
+            <DisplayComment/> */}
           
            </div>
         )
