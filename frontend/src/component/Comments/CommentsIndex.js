@@ -8,7 +8,6 @@ const CommentsIndex = ({post_id})=>{
     const handleStyle = {
         height:"50px",
         width:"250px",
-        border: "2px solid red",
         margintop: "5%"
         
     }
@@ -35,9 +34,9 @@ const CommentsIndex = ({post_id})=>{
 
     const showAllComments = comments.map((comment)=>{
         return(
-        <ul className="ul">
-            <li style={handleStyle}> 
-            {comment.username} commented {comment.content}
+        <ul className="ul" style={handleStyle}>
+            <li> 
+            {comment.username}: {comment.content}
             </li>
            
         </ul>

@@ -1,6 +1,6 @@
 export const apiURL = () => {
     return window.location.hostname === "localhost"
       ? "http://localhost:3006"
-      : "https://ig-pursuit.herokuapp.com";
+      : "https://finstagram-clone-2020.herokuapp.com";
   };
   

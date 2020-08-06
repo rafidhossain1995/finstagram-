@@ -1,12 +1,12 @@
 import React from "react"
 import "../../CSS/PostCard.css"
 import CreateComment from "../Comments/CreateComment"
-import DisplayComment from "../Comments/CommentsIndex"
+import CommentsIndex from "../Comments/CommentsIndex"
 
 const PostCard = ({imageUrl, postContent, username, post_id})=>{
     const handleStyle = {
-        height:"200px",
-        width:"200px",
+        height:"75%",
+        width:"75%",
         border: "2px solid black"
         
         
@@ -23,7 +23,8 @@ const PostCard = ({imageUrl, postContent, username, post_id})=>{
            
 
             <br/>
-            <CreateComment post_id={post_id}/>
+            {/* <CreateComment post_id={post_id}/> */}
+            <CommentsIndex post_id={post_id}/>  
             </div>
           
 

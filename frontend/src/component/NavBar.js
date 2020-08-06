@@ -14,16 +14,23 @@ const { currentUser } = useContext(AuthContext);
 
 	const displayButton = () => {
 		if (currentUser) {
-			return <button onClick={logout}>Logout</button>;
+      return(
+        <>
+        <NavLink to={"/home"} className="home" >Home</NavLink> 
+        <NavLink to = {"/profile"} className="profile"></NavLink>
+        <button onClick={logout} className="logout">Logout</button>
+        </>
+      ) 
+      
 		} else {
-			return (
-				<>
-			<Login/>
-				</>
-			);
+      return(
+        <NavLink to={"/login"}>Login</NavLink>
+      )
+			
     }
-    displayButton()
-	};
+    
+  };
+  
 
 
     return(
@@ -35,12 +42,7 @@ const { currentUser } = useContext(AuthContext);
             <div className = "logo">
             <div className="home-body">
             <NavLink to ={"/home"}className="instaLogo">Instagram</NavLink>
-                <NavLink to={"/home"} className="home" >Home</NavLink>
-                {/* <NavLink to={"/users"} className="community">Show All Users</NavLink> */}
-                <NavLink to = {"/profile"} className="profile">Profile</NavLink>
-                
-                <button className="logout" onClick = {logout}>Logout</button>  
-      
+                  {displayButton()}
             </div>
               
             </div>

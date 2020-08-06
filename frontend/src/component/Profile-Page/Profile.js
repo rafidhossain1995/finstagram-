@@ -10,7 +10,7 @@ import {storage} from "../../firebase"
 import { useInputs } from "../../utility/InputHooks"
 import DisplayImage from "./DisplayImage"
 import CreateComment from "../Comments/CreateComment"
-import DisplayComment from "../Comments/CommentsIndex"
+import CommentsIndex from "../Comments/CommentsIndex"
 
 
     const Profile = ()=>{
@@ -117,6 +117,7 @@ import DisplayComment from "../Comments/CommentsIndex"
 			</div>
 
             <DisplayImage/>
+            
            
             
             

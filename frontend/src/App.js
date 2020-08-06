@@ -16,7 +16,7 @@ function App() {
   return (
     <div className="App">
     <AuthProvider>
-    <NavBar />
+         <NavBar />
       <Switch>
         <AuthRoute exact path={"/"}>
           <SignUp />
@@ -25,7 +25,7 @@ function App() {
         <AuthRoute path={"/login"}>
           <Login />
         </AuthRoute>
-
+        
         <ProtectedRoute path="/users">
           <Users />
         </ProtectedRoute>
