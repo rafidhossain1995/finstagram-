@@ -3,7 +3,7 @@ import "../../CSS/PostCard.css"
 import CreateComment from "../Comments/CreateComment"
 import CommentsIndex from "../Comments/CommentsIndex"
 
-const PostCard = ({imageUrl, postContent, username, post_id})=>{
+const PostCard = ({username, imageUrl, postContent, post_id})=>{
     const handleStyle = {
         height:"75%",
         width:"75%",

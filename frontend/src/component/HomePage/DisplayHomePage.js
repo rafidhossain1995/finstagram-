@@ -41,7 +41,7 @@ const DisplayImage =()=>{
            username = {homePost.username}
            homeImageUrl={API + homePost.pictures}
            postContent={homePost.content}
-            
+           profile_pic={homePost.profile_pic}  
             />
           
            </div>

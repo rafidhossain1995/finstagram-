@@ -36,11 +36,13 @@ const Home =()=>{
     const showPosts = posts.map((post)=>{
         return(
            <>
-            {post.username}
+            {/* {post.username} */}
            <HomePostCard  
+           username = {post.username}
            homeImageUrl={API + post.pictures}
            postContent={post.content}
            post_id = {post.id}
+           profile_pic = {post.profile_pic}
            />
           
            </>

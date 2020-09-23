@@ -2,7 +2,7 @@ const db = require("../DB/index");
 const upload = require("./imageUploader")
 const getPosts = async (req, res, next) => {
   try {
-    let posts = await db.any("SELECT * FROM posts ORDER BY id DESC");
+    let posts = await db.any("SELECT posts.id, posts.pictures, posts.content, users.id AS users_id, users.username, users.profile_pic FROM posts INNER JOIN users ON users.id=posts.user_id");
     res.status(200).json({
       status: "success",
       message: "all users posts",
@@ -121,6 +121,20 @@ const getCommentsByPosts = async (req, res, next) => {
       })
   }
 }
+
+
+
+
+// const getPostsAndUserName = async(req, res, next)=>{
+//   try{
+//     let postsAndUserName = await db.any
+//   }catch(err){
+//     res.status(400).json({
+//       status:'error',
+//       message:'no username and post'
+//     })
+//   }
+// }
 
 // const addNewComments = asycn(req, res, next)=>{
 //   try {

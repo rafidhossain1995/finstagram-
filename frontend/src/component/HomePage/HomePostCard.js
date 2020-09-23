@@ -4,7 +4,7 @@ import CreateComment from "../Comments/CreateComment"
 import CommentsIndex from "../Comments/CommentsIndex"
 
 
-const HomePostCard = ({homeImageUrl, postContent, username, post_id})=>{
+const HomePostCard = ({homeImageUrl, postContent, username, post_id, profile_pic})=>{
     const handleStyles = {
         height:"75%",
         width:"75%",
@@ -16,10 +16,12 @@ const HomePostCard = ({homeImageUrl, postContent, username, post_id})=>{
         <div className="homePic">
 
         <div className="picture">
-            <h3>{username}</h3>
+            <h1>{username}</h1>
+            <img className="profile-P" src={profile_pic}/>
             <img className="profilePictureImage" src={homeImageUrl} style={handleStyles}/>
             <h2>{postContent}</h2>
             <div className="iconz">
+            
             {/* <h3 className="heart">heart</h3>
             <h3 className="comment">Comment</h3>
             <h3 className="follow">follow</h3> */}
