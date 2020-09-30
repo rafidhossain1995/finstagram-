@@ -52,48 +52,48 @@ VALUES
 ('pJ9i3hRlqfbcYeT89H4e1q2VQfI2', 'HillaryKim12@yahoo.com', 'HKim95', 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQLaB4YlwSXl3HIMFrNqcSdD6m14AkNgmujmw&usqp=CAU');
 
 INSERT INTO POSTS
-(id, user_id, pictures, content)
-VALUES('1', 'pJ9i7hRlqfbcWeT69H4e1q2VQfI2', '/uploads/mamba.jpg', 'RIP to a Legend!'),
-('2', 'pJ9i9hRlqfbcWeT69H4e1q2VQfI2', '/uploads/hike.jpg', 'Another great hike done today!'),
-('3', 'pJ9i2hRlqfbcWeT69H4e1q2VQfI2', '/uploads/graduation.jpg', 'Congrats to the class of 2020! Despite this year and the hardship we all faced, I want to give a shoutout to everyone that worked hard!'),
-('4', 'pJ9i1hRlqfbcWeT69H4e1q2VQfI2', '/uploads/pregnant.jpg', 'Just 4 more months before I become an Aunt!!!'),
-('5', 'pJ9i1hRlqfbcYeT69H4e1q2VQfI2', '/uploads/art.jpg', 'went to the museum today and noticed this exquisite masterpiece!'),
-('6', 'pJ9i4hRlqfbcYeT69H4e1q2VQfI2', '/uploads/ps5.jpg', 'Who else has the ps5 pre-oredered???!!! So HYPED!!!!'),
-('7', 'pJ9i5hRlqfbcYeT69H4e1q2VQfI2', '/uploads/losangeles.jpg', 'What a view. So glad I got to visit'),
-('8', 'pJ9i6hRlqfbcYeT69H4e1q2VQfI2', '/uploads/bills.jpg', 'Lets Go Bills!!!! 3-0 so far. Are we seeing superbowl 2021?'),
-('9', 'pJ9i3hRlqfbcYeT79H4e1q2VQfI2', '/uploads/benz.jpg', 'New Whip Who dis?'),
-('10', 'pJ9i3hRlqfbcYeT89H4e1q2VQfI2', '/uploads/icecream.jpg', 'Literally the best ice cream out there!!!!');
+(user_id, pictures, content)
+VALUES( 'pJ9i7hRlqfbcWeT69H4e1q2VQfI2', '/uploads/mamba.jpg', 'RIP to a Legend!'),
+('pJ9i9hRlqfbcWeT69H4e1q2VQfI2', '/uploads/hike.jpg', 'Another great hike done today!'),
+('pJ9i2hRlqfbcWeT69H4e1q2VQfI2', '/uploads/graduation.jpg', 'Congrats to the class of 2020! Despite this year and the hardship we all faced, I want to give a shoutout to everyone that worked hard!'),
+('pJ9i1hRlqfbcWeT69H4e1q2VQfI2', '/uploads/pregnant.jpg', 'Just 4 more months before I become an Aunt!!!'),
+('pJ9i1hRlqfbcYeT69H4e1q2VQfI2', '/uploads/art.jpg', 'went to the museum today and noticed this exquisite masterpiece!'),
+('pJ9i4hRlqfbcYeT69H4e1q2VQfI2', '/uploads/ps5.jpg', 'Who else has the ps5 pre-oredered???!!! So HYPED!!!!'),
+('pJ9i5hRlqfbcYeT69H4e1q2VQfI2', '/uploads/losangeles.jpg', 'What a view. So glad I got to visit'),
+('pJ9i6hRlqfbcYeT69H4e1q2VQfI2', '/uploads/bills.jpg', 'Lets Go Bills!!!! 3-0 so far. Are we seeing superbowl 2021?'),
+('pJ9i3hRlqfbcYeT79H4e1q2VQfI2', '/uploads/benz.jpg', 'New Whip Who dis?'),
+('pJ9i3hRlqfbcYeT89H4e1q2VQfI2', '/uploads/icecream.jpg', 'Literally the best ice cream out there!!!!');
 
 
 
 
 INSERT INTO comments
-(id, commenters_id, post_id, content)
-VALUES ('1','pJ9i2hRlqfbcWeT69H4e1q2VQfI2', '1', 'It was terrible to hear this news. I cannot believe this' ),
-('2','pJ9i1hRlqfbcWeT69H4e1q2VQfI2', '1', 'Oh No!!!!'),
-('3','pJ9i1hRlqfbcYeT69H4e1q2VQfI2', '1', 'RIP, I will never forget the talents he put in the game'),
-('4','pJ9i2hRlqfbcWeT69H4e1q2VQfI2', '2', 'Hey, where was this hike done? Looks amazing!!!'),
-('5','pJ9i1hRlqfbcYeT69H4e1q2VQfI2', '2', 'Glad you enjoyed the hike, my family and I went there last fall!'),
-('6','pJ9i1hRlqfbcWeT69H4e1q2VQfI2', '2', 'FUN!'),
-('7','pJ9i1hRlqfbcWeT69H4e1q2VQfI2', '3', 'Aww Congrats! I know how hard it must have been for you and your classmates but I am glad you all pulled through'),
-('8','pJ9i1hRlqfbcYeT69H4e1q2VQfI2', '3', 'Ayeee congrats brodie!'),
-('9','pJ9i5hRlqfbcYeT69H4e1q2VQfI2', '4', 'Congrats Sarah!!!!'),
-('10','pJ9i3hRlqfbcYeT89H4e1q2VQfI2', '4', 'Kudos to you and your husband, any plans for names?'),
-('11','pJ9i4hRlqfbcYeT69H4e1q2VQfI2', '5', 'I think I saw that picture too. It is pretty exquisite'),
-('12','pJ9i9hRlqfbcWeT69H4e1q2VQfI2', '5', 'I had a quiz in my arts class about this exact painting. I failed...'),
-('13','pJ9i3hRlqfbcYeT79H4e1q2VQfI2', '5', 'This pic is so ugly but I guess everyone has their own taste haha!'),
-('14','pJ9i5hRlqfbcYeT69H4e1q2VQfI2', '6', 'I want it but I think I will wait a few more weeks after the release so I do not have to wait in extreme lines'),
-('15','pJ9i3hRlqfbcYeT89H4e1q2VQfI2', '6', 'I plan to surprise my boyfriend with one... So glad he doesnt have this app or else he would know!'),
-('16','pJ9i9hRlqfbcWeT69H4e1q2VQfI2', '7', 'I visited in 2018. One of the best experiences of my life!'),
-('17','pJ9i1hRlqfbcYeT69H4e1q2VQfI2', '7', 'Hey! If you want any good restaurants, you HMU I can show you some nice ares'),
-('18','pJ9i6hRlqfbcYeT69H4e1q2VQfI2', '7', 'Go To Venice Beach!!!!'),
-('19','pJ9i3hRlqfbcYeT89H4e1q2VQfI2', '8', 'They lost 4 consecutives super bowl in a row smh, they are going to choke if they come close to it this year'),
-('20','pJ9i1hRlqfbcWeT69H4e1q2VQfI2', '8', 'They have Josh Allen and a much better defense now. Lets not compare things to 30 years back. Go Bills!!!!'),
-('21','pJ9i6hRlqfbcYeT69H4e1q2VQfI2', '9', 'Yoooo thats such a dope car. What year is it?'),
-('22','pJ9i4hRlqfbcYeT69H4e1q2VQfI2', '9', 'Time for you to start picking people up now hahahaha!!!!'),
-('23','pJ9i3hRlqfbcYeT79H4e1q2VQfI2', '10', 'Is this the location in manhattan? It looks so good'),
-('24','pJ9i7hRlqfbcWeT69H4e1q2VQfI2', '10', 'I tried the strawberry flavored one. It was absolutely delicious'),
-('25','pJ9i4hRlqfbcYeT69H4e1q2VQfI2', '10', 'Please pleasse please tell me where this is!!!!!');
+(commenters_id, post_id, content)
+VALUES ('pJ9i2hRlqfbcWeT69H4e1q2VQfI2', '1', 'It was terrible to hear this news. I cannot believe this' ),
+('pJ9i1hRlqfbcWeT69H4e1q2VQfI2', '1', 'Oh No!!!!'),
+('pJ9i1hRlqfbcYeT69H4e1q2VQfI2', '1', 'RIP, I will never forget the talents he put in the game'),
+('pJ9i2hRlqfbcWeT69H4e1q2VQfI2', '2', 'Hey, where was this hike done? Looks amazing!!!'),
+('pJ9i1hRlqfbcYeT69H4e1q2VQfI2', '2', 'Glad you enjoyed the hike, my family and I went there last fall!'),
+('pJ9i1hRlqfbcWeT69H4e1q2VQfI2', '2', 'FUN!'),
+('pJ9i1hRlqfbcWeT69H4e1q2VQfI2', '3', 'Aww Congrats! I know how hard it must have been for you and your classmates but I am glad you all pulled through'),
+('pJ9i1hRlqfbcYeT69H4e1q2VQfI2', '3', 'Ayeee congrats brodie!'),
+('pJ9i5hRlqfbcYeT69H4e1q2VQfI2', '4', 'Congrats Sarah!!!!'),
+('pJ9i3hRlqfbcYeT89H4e1q2VQfI2', '4', 'Kudos to you and your husband, any plans for names?'),
+('pJ9i4hRlqfbcYeT69H4e1q2VQfI2', '5', 'I think I saw that picture too. It is pretty exquisite'),
+('pJ9i9hRlqfbcWeT69H4e1q2VQfI2', '5', 'I had a quiz in my arts class about this exact painting. I failed...'),
+('pJ9i3hRlqfbcYeT79H4e1q2VQfI2', '5', 'This pic is so ugly but I guess everyone has their own taste haha!'),
+('pJ9i5hRlqfbcYeT69H4e1q2VQfI2', '6', 'I want it but I think I will wait a few more weeks after the release so I do not have to wait in extreme lines'),
+('pJ9i3hRlqfbcYeT89H4e1q2VQfI2', '6', 'I plan to surprise my boyfriend with one... So glad he doesnt have this app or else he would know!'),
+('pJ9i9hRlqfbcWeT69H4e1q2VQfI2', '7', 'I visited in 2018. One of the best experiences of my life!'),
+('pJ9i1hRlqfbcYeT69H4e1q2VQfI2', '7', 'Hey! If you want any good restaurants, you HMU I can show you some nice ares'),
+('pJ9i6hRlqfbcYeT69H4e1q2VQfI2', '7', 'Go To Venice Beach!!!!'),
+('pJ9i3hRlqfbcYeT89H4e1q2VQfI2', '8', 'They lost 4 consecutives super bowl in a row smh, they are going to choke if they come close to it this year'),
+('pJ9i1hRlqfbcWeT69H4e1q2VQfI2', '8', 'They have Josh Allen and a much better defense now. Lets not compare things to 30 years back. Go Bills!!!!'),
+('pJ9i6hRlqfbcYeT69H4e1q2VQfI2', '9', 'Yoooo thats such a dope car. What year is it?'),
+('pJ9i4hRlqfbcYeT69H4e1q2VQfI2', '9', 'Time for you to start picking people up now hahahaha!!!!'),
+('pJ9i3hRlqfbcYeT79H4e1q2VQfI2', '10', 'Is this the location in manhattan? It looks so good'),
+('pJ9i7hRlqfbcWeT69H4e1q2VQfI2', '10', 'I tried the strawberry flavored one. It was absolutely delicious'),
+('pJ9i4hRlqfbcYeT69H4e1q2VQfI2', '10', 'Please pleasse please tell me where this is!!!!!');
 
 
 

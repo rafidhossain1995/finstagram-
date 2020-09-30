@@ -6,7 +6,7 @@ import "../../CSS/Comments.css"
 import CommentsIndex from "./CommentsIndex"
 
 
-const CreateComment = ({post_id})=>{
+const CreateComment = ({post_id, addComment, addUsername})=>{
     const API = apiURL()
     const {token} = useContext(AuthContext)
     const [comment, setComment] = useState("");
@@ -21,9 +21,11 @@ const CreateComment = ({post_id})=>{
                 
             }
         })
-        window.location.reload()
+        debugger
+        addUsername()
+        addComment(res.data.body.comment)
+        // window.location.reload()
     }
- 
    
 
     return(

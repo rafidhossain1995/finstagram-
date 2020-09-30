@@ -3,6 +3,7 @@ import axios from "axios"
 import {AuthContext} from "../../providers/AuthContext"
 import { apiURL } from "../../utility/apiURL"
 import "../../CSS/Comments.css"
+import CreateComment from "../Comments/CreateComment"
 
 const CommentsIndex = ({post_id})=>{
     const handleStyle = {
@@ -14,6 +15,7 @@ const CommentsIndex = ({post_id})=>{
     const API = apiURL()
     const {token} = useContext(AuthContext)
     const [comments, setComments] = useState([]);
+    const [username, setUsername] = useState([])
 
     useEffect(()=>{
         const showComment = async()=>{
@@ -24,14 +26,27 @@ const CommentsIndex = ({post_id})=>{
                     'AuthToken': token
                 }
             })
-            debugger
             setComments(res.data.body.comments)
             console.log(res.data)
         }
         showComment()
     },[API])
     
-
+    const addComment = (comment)=>{
+        setComments(previousComments=>{
+            return(
+                [...previousComments, comment]
+            )
+        })
+    }
+    const addUsername=(username)=>{
+        setUsername(previousUsername=>{
+            return(
+                [...previousUsername, username]
+            )
+        })
+    }
+    
     const showAllComments = comments.map((comment)=>{
         return(
         <ul className="ul" style={handleStyle}>
@@ -43,7 +58,7 @@ const CommentsIndex = ({post_id})=>{
         )
         
     })
-
+    
 
 
     return(
@@ -51,6 +66,7 @@ const CommentsIndex = ({post_id})=>{
             <div className="gallery">
                 <div className="gallery-item" tabIndex="0">
                 <div className="gallery-image" key="comment">{showAllComments}</div>
+                <CreateComment post_id={post_id} addComment={addComment} addUsername={addUsername}/>
                 </div>
             </div>
         </div>

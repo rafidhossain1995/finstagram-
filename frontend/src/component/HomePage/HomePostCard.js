@@ -28,7 +28,7 @@ const HomePostCard = ({homeImageUrl, postContent, username, post_id, profile_pic
 
             <br/>
              <CommentsIndex post_id={post_id}/>  
-             <CreateComment post_id={post_id}/>
+             {/* <CreateComment post_id={post_id}/> */}
             
             </div>
           
