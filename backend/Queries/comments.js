@@ -10,11 +10,15 @@ const addComment = async (req, res, next) => {
         "INSERT INTO comments (post_id, commenters_id, content) VALUES ($1, $2, $3) RETURNING *",
         [post_id, commenters_id, content]
       );
+      let username = await db.one(
+        "SELECT username FROM users WHERE id = $1", [commenters_id]
+      )
       res.status(200).json({
         status: "Success",
         message: "Comment Added",
         body: {
-          comment
+          comment,
+          username
         },
       });
     } catch (error) {

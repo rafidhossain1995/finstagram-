@@ -39,13 +39,13 @@ const CommentsIndex = ({post_id})=>{
             )
         })
     }
-    const addUsername=(username)=>{
-        setUsername(previousUsername=>{
-            return(
-                [...previousUsername, username]
-            )
-        })
-    }
+    // const addUsername=(comment)=>{
+    //     setUsername(previousComment=>{
+    //         return(
+    //             [...previousComment, comment]
+    //         )
+    //     })
+    // }
     
     const showAllComments = comments.map((comment)=>{
         return(
@@ -59,14 +59,14 @@ const CommentsIndex = ({post_id})=>{
         
     })
     
-
+debugger
 
     return(
         <div className="containerComments">
             <div className="gallery">
                 <div className="gallery-item" tabIndex="0">
                 <div className="gallery-image" key="comment">{showAllComments}</div>
-                <CreateComment post_id={post_id} addComment={addComment} addUsername={addUsername}/>
+                <CreateComment post_id={post_id} addComment={addComment}/>
                 </div>
             </div>
         </div>
