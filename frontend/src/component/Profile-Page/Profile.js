@@ -13,6 +13,7 @@ import CreateComment from "../Comments/CreateComment"
 import CommentsIndex from "../Comments/CommentsIndex"
 
 
+
     const Profile = ()=>{
         const [user, setUser] = useState([])
         const [url, setUrl] = useState("")
@@ -21,13 +22,13 @@ import CommentsIndex from "../Comments/CommentsIndex"
         const content = useInputs("")
         const[file, setFile] = useState([])
         const[pics, setPics] = useState([])
-        // const [postImage, setPostImagePath] = useState([])
-
+        const [submitted, setSubmitted] = useState(null)
         const API = apiURL()
-        const {token} = useContext(AuthContext)
-        const {currentUser} = useContext(AuthContext)
-        let email = currentUser.email
+        const {currentUser, token} = useContext(AuthContext)
+        const [posts, setPosts] = useState([])
         let user_id = currentUser.id
+        // const [postImage, setPostImagePath] = useState([])
+        let email = currentUser.email
         
 
         useEffect(() => {
@@ -45,7 +46,8 @@ import CommentsIndex from "../Comments/CommentsIndex"
             setUser(res.data.user);
         }
         fetchData();
-    }, [API])
+        fetchPosts()
+    }, [API, submitted])
 
     // const addPost = (post)=>{
     //     setPics(previousPost=>{
@@ -59,7 +61,7 @@ import CommentsIndex from "../Comments/CommentsIndex"
             setFile(e.target.files[0])
         }
 
-        const handleNewPost = async (e)=>{ 
+        const addPost = async (e)=>{ 
             try{
                 e.preventDefault()
                 const formData = new FormData()
@@ -74,6 +76,7 @@ import CommentsIndex from "../Comments/CommentsIndex"
                 let newPost = await axios.post(`${API}/posts/${user_id}`, formData, config)
                 console.log(newPost.data)
                 console.log("new post created")
+                setSubmitted(true)
                 // debugger
                 // addPost(newPost.data.post["pictures"] && newPost.data.post["content"])
                 // window.location.reload()
@@ -88,7 +91,20 @@ import CommentsIndex from "../Comments/CommentsIndex"
         }
         debugger
         
-       
+        const fetchPosts= async () => {  
+           
+            let res = await axios({
+            method: "get", 
+            url: `${API}/posts/${user_id}`,
+            headers: {
+                'AuthToken': token
+            }
+        })
+        
+    setPosts(res.data.payload);
+    console.log(res.data)
+}
+fetchPosts();
 
        
         return(
@@ -103,7 +119,7 @@ import CommentsIndex from "../Comments/CommentsIndex"
                 </div>
 
 				<h1 className="profile-user-name">{user.username}</h1>
-                <form onSubmit={handleNewPost} className="profileUserSettings">
+                <form onSubmit={addPost} className="profileUserSettings">
 
                 <h1 className="postPicsHere">Post Your Pictures Here!</h1>
 			    <input className="file" placeholder= "hello" type = "file" onChange={onSelectImage}/>
@@ -125,7 +141,7 @@ import CommentsIndex from "../Comments/CommentsIndex"
 			<h2><span className="profile-real-name">Welcome To</span> {user.username}'s finstagram account!</h2>
 			</div>
 
-            <DisplayImage/>
+            <DisplayImage posts={posts}/>
             
            
             

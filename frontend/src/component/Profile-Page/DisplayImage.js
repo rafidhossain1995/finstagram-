@@ -7,30 +7,30 @@ import CreateComment from "../Comments/CreateComment"
 import DisplayComment from "../Comments/CommentsIndex"
 import "../../CSS/DisplayImage.css"
 
-const DisplayImage =()=>{
+const DisplayImage =({posts})=>{
     const API = apiURL()
-    const {currentUser, token} = useContext(AuthContext)
-    const [posts, setPosts] = useState([])
+    // const {currentUser, token} = useContext(AuthContext)
+    // const [posts, setPosts] = useState([])
 
-    let user_id = currentUser.id
+    // let user_id = currentUser.id
 
-    useEffect(() => {
+    // useEffect(() => {
             
-        const createPosts= async () => {  
+    //     const createPosts= async () => {  
            
-                    let res = await axios({
-                    method: "get", 
-                    url: `${API}/posts/${user_id}`,
-                    headers: {
-                        'AuthToken': token
-                    }
-                })
+    //                 let res = await axios({
+    //                 method: "get", 
+    //                 url: `${API}/posts/${user_id}`,
+    //                 headers: {
+    //                     'AuthToken': token
+    //                 }
+    //             })
                 
-            setPosts(res.data.payload);
-            console.log(res.data)
-        }
-        createPosts();
-    }, [API])
+    //         setPosts(res.data.payload);
+    //         console.log(res.data)
+    //     }
+    //     createPosts();
+    // }, [API])
 
   
     
