@@ -21,4 +21,4 @@ admin.initializeApp({
     // databaseURL:"https://finsta-20.herokuapp.com/"
   });
 
-module.exports = admin
+module.exports = admin;
