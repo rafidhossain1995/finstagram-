@@ -9,6 +9,7 @@ import "../../CSS/DisplayImage.css"
 
 const DisplayImage =({posts})=>{
     const API = apiURL()
+    const {currentUser, token} = useContext(AuthContext)
     // const {currentUser, token} = useContext(AuthContext)
     // const [posts, setPosts] = useState([])
 
