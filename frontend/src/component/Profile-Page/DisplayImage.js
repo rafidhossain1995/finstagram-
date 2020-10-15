@@ -31,6 +31,8 @@ const DisplayImage =()=>{
         }
         createPosts();
     }, [API])
+
+  
     
     
     const showPosts = posts.map((post)=>{

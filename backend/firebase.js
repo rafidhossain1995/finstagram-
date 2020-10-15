@@ -14,7 +14,7 @@ const serviceAccount = {
     client_x509_cert_url: process.env.CLIENT_X509_CERT_URL,
 }
 
-
+console.log(serviceAccount.private_key)
 admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
     databaseURL: "https://instagram-clone-auth.firebaseio.com"

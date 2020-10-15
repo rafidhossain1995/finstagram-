@@ -20,6 +20,7 @@ import CommentsIndex from "../Comments/CommentsIndex"
         const [error, setError] = useState("")
         const content = useInputs("")
         const[file, setFile] = useState([])
+        const[pics, setPics] = useState([])
         // const [postImage, setPostImagePath] = useState([])
 
         const API = apiURL()
@@ -46,7 +47,13 @@ import CommentsIndex from "../Comments/CommentsIndex"
         fetchData();
     }, [API])
 
-    
+    // const addPost = (post)=>{
+    //     setPics(previousPost=>{
+    //         return(
+    //             [...previousPost, post]
+    //         )
+    //     })
+    // }
         const onSelectImage = (e)=>{
             e.preventDefault()
             setFile(e.target.files[0])
@@ -67,7 +74,9 @@ import CommentsIndex from "../Comments/CommentsIndex"
                 let newPost = await axios.post(`${API}/posts/${user_id}`, formData, config)
                 console.log(newPost.data)
                 console.log("new post created")
-                window.location.reload()
+                // debugger
+                // addPost(newPost.data.post["pictures"] && newPost.data.post["content"])
+                // window.location.reload()
                 // see if app still works if it doesn't have to reload. 
                 
 
