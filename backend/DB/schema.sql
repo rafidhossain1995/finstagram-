@@ -1,7 +1,7 @@
-DROP DATABASE IF EXISTS instagram_db;
-CREATE DATABASE instagram_db;
+-- DROP DATABASE IF EXISTS instagram_db;
+-- CREATE DATABASE instagram_db;
 
-\c instagram_db;
+-- \c instagram_db;
 
 DROP TABLE IF EXISTS comments;
 DROP TABLE IF EXISTS posts;
