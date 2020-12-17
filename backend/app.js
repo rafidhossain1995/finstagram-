@@ -13,7 +13,8 @@ const commentsRouter = require('./Routes/commentRoutes')
 
 app.use(express.static(path.resolve(__dirname, "./public")));
 app.use(cors());
-app.use(bodyParser.urlencoded({extended: false}));app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
 app.use('/posts', postRouter);
 app.use('/comments', commentsRouter)
 

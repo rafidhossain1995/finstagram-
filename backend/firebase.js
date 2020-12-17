@@ -18,6 +18,7 @@ console.log(serviceAccount.private_key)
 admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
     databaseURL: "https://instagram-clone-auth.firebaseio.com"
+    // databaseURL:"https://finsta-20.herokuapp.com/"
   });
 
-module.exports = admin
+module.exports = admin;

@@ -7,8 +7,8 @@ const path = require('path');
       }
    });
       const upload = multer({
-         storage: storage,
-         limits: {fileSize: 1000000},
+         storage: storage
+         // limits: {fileSize: 1000000},
       }).single("allImages");
 
 module.exports = upload

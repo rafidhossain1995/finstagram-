@@ -73,3 +73,14 @@ debugger
     )
 }
 export default CommentsIndex
+
+// let obj = {name: "rafid", age: 25}
+
+// obj.city = "nyc"
+// obj.food = "sushi"
+// obj.unemployment = false
+
+// obj.food = "pizza"
+
+// delete obj.city 
+// console.log(obj.age)

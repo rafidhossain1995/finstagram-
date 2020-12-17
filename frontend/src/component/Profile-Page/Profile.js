@@ -8,7 +8,7 @@ import "../../CSS/Profile.css"
 import firebase from "../../firebase"
 import {storage} from "../../firebase"
 import { useInputs } from "../../utility/InputHooks"
-import DisplayImage from "./DisplayImage"
+import PostsList from "./PostsList"
 import CreateComment from "../Comments/CreateComment"
 import CommentsIndex from "../Comments/CommentsIndex"
 
@@ -34,8 +34,8 @@ import CommentsIndex from "../Comments/CommentsIndex"
         useEffect(() => {
             
         const fetchData = async () => {  
-           
-                    let res = await axios({
+            try{
+                let res = await axios({
                     method: "get", 
                     url: `${API}/users/singleUser/${email}`,
                     headers: {
@@ -43,11 +43,15 @@ import CommentsIndex from "../Comments/CommentsIndex"
                     }
                 })
                 
-            setUser(res.data.user);
+            setUser(res.data.user);    
+            }catch(err){
+                console.log(err)
+            }      
         }
         fetchData();
         fetchPosts()
-    }, [API, submitted])
+    }, [API, submitted]) 
+    // line 53 is effect's the dependancy array
 
     // const addPost = (post)=>{
     //     setPics(previousPost=>{
@@ -91,26 +95,24 @@ import CommentsIndex from "../Comments/CommentsIndex"
         }
         debugger
         
-        const fetchPosts= async () => {  
-           
+        const fetchPosts= async () => {    
             let res = await axios({
-            method: "get", 
-            url: `${API}/posts/${user_id}`,
-            headers: {
-                'AuthToken': token
-            }
-        })
-        
-    setPosts(res.data.payload);
-    console.log(res.data)
-}
-fetchPosts();
+                method: "get", 
+                url: `${API}/posts/${user_id}`,
+                headers: {
+                    'AuthToken': token
+                    }
+            })
+            setPosts(res.data.payload);
+            console.log(res.data)
+        }
+        fetchPosts();   
 
        
         return(
 
   
-
+            
             <div className="profileContainer">
                 <div className="profile-pic">
                     
@@ -141,7 +143,7 @@ fetchPosts();
 			<h2><span className="profile-real-name">Welcome To</span> {user.username}'s finstagram account!</h2>
 			</div>
 
-            <DisplayImage posts={posts}/>
+            <PostsList posts={posts}/>
             
            
             

@@ -1,18 +1,18 @@
--- DROP DATABASE IF EXISTS instagram_db;
--- CREATE DATABASE instagram_db;
+DROP DATABASE IF EXISTS instagram_db;
+CREATE DATABASE instagram_db;
 
--- \c instagram_db;
+\c instagram_db;
 
 DROP TABLE IF EXISTS comments;
-DROP TABLE IF EXISTS posts;
+DROP TABLE IF EXISTS posts; 
 DROP TABLE IF EXISTS users; 
 
 
 CREATE TABLE users(
-id VARCHAR PRIMARY KEY,
-email VARCHAR,
-username VARCHAR,
-profile_pic VARCHAR
+    id VARCHAR PRIMARY KEY,
+    email VARCHAR,
+    username VARCHAR,
+    profile_pic VARCHAR
 );
 
 CREATE TABLE posts(
@@ -26,9 +26,19 @@ CREATE TABLE comments(
 id SERIAL PRIMARY KEY,
 commenters_id VARCHAR REFERENCES users(id) ON DELETE CASCADE,
 post_id INT REFERENCES posts(id) ON DELETE CASCADE,
-content TEXT
+content TEXT,
+
 -- time TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
+
+-- CREATE TABLE likes(
+--     id SERIAL PRIMARY KEY,
+--     likers_id INT REFERENCES users(id) ON DELETE CASCADE,
+--     likers_post_id INT REFERENCES posts(id) ON DELETE CASCADE,
+--     comment_like_id INT REFERENCES comments(id) ON DELETE CASCADE
+-- ); 
+
+
 
 -- CREATE TABLE profile_pic(
 -- id SERIAL PRIMARY KEY,
