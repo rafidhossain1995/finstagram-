@@ -17,4 +17,19 @@
     width: 25%;
     border-radius: 55%;
     margin-bottom: 15px;
+    float: left;
+    width:  100px;
+    height: 100px;
+    object-fit: cover;
+    
+}
+
+.usernames{
+    color: red;
+    float: left;
+    margin: 0 5px 0;
+}
+
+.iconz{
+    /* margin-bottom: 50%; */
 }

@@ -16,8 +16,8 @@ const HomePostCard = ({homeImageUrl, postContent, username, post_id, profile_pic
         <div className="homePic">
 
         <div className="picture">
-            <h1>{username}</h1>
-            <img className="profile-P" src={profile_pic}/>
+            <h1 className="usernames">{username} <a><img className="profile-P"src={profile_pic}/></a></h1>
+            {/* <img className="profile-P" src={profile_pic}/> */}
             <img className="profilePictureImage" src={homeImageUrl} style={handleStyles}/>
             <h2>{postContent}</h2>
             <div className="iconz">
