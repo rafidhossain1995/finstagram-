@@ -19,7 +19,7 @@
 
 .handleComment{
     position: absolute;
-    margin: 0 2em;
+    /* margin: 0 2em; */
     border-top: 1px solid grey; 
     padding: 0 79px;
     margin-left: -1%;
@@ -29,6 +29,5 @@
 .comment-button{
     width: 100%;
     margin-left: -29%;
-    margin: 0;
 }
 

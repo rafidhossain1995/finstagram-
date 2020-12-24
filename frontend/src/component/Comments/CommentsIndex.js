@@ -65,9 +65,11 @@ debugger
             <ul className="comments-list">
             {showAllComments}
             </ul>
-               
-                <CreateComment post_id={post_id} addComment={addComment}/>
+            <CreateComment post_id={post_id} addComment={addComment}/>
         </div>
+       
+
+                
     )
 }
 export default CommentsIndex
