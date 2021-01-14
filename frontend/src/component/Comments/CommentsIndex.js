@@ -6,12 +6,12 @@ import "../../CSS/Comments.css"
 import CreateComment from "../Comments/CreateComment"
 
 const CommentsIndex = ({post_id})=>{
-    const handleStyle = {
-        height:"50px",
-        width:"250px",
-        margintop: "5%"
+    // const handleStyle = {
+    //     height:"50px",
+    //     width:"250px",
+    //     margintop: "5%"
         
-    }
+    // }
     const API = apiURL()
     const {token} = useContext(AuthContext)
     const [comments, setComments] = useState([]);
@@ -49,12 +49,11 @@ const CommentsIndex = ({post_id})=>{
     
     const showAllComments = comments.map((comment)=>{
         return(
-        <ul className="ul" style={handleStyle}>
+       
             <li> 
             {comment.username}: {comment.content}
             </li>
            
-        </ul>
         )
         
     })
@@ -63,13 +62,14 @@ debugger
 
     return(
         <div className="containerComments">
-            <div className="gallery">
-                <div className="gallery-item" tabIndex="0">
-                <div className="gallery-image" key="comment">{showAllComments}</div>
-                <CreateComment post_id={post_id} addComment={addComment}/>
-                </div>
-            </div>
+            <ul className="comments-list">
+            {showAllComments}
+            </ul>
+            <CreateComment post_id={post_id} addComment={addComment}/>
         </div>
+       
+
+                
     )
 }
 export default CommentsIndex

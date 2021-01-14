@@ -19,6 +19,8 @@
   },
   "homepage": "https://github.com/rafidhossain1995/instagram-clone#readme",
   "dependencies": {
+    "cli": "^1.0.1",
+    "heroku": "^7.45.0",
     "nodemon": "^2.0.4"
   }
 }

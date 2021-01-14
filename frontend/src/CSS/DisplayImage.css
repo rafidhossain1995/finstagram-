@@ -1,4 +1,4 @@
-.galleryImage {
+/* .galleryImage {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 2em;
@@ -6,14 +6,17 @@
     margin-left: 50%;
     
    
-}
-.showPostDiv{
+} */
+/* .showPostDiv{
  height: 500px;
+ display: grid;
+  grid-gap: 1px;
+  grid-template-columns: repeat(3, 1fr);
 
-} 
-.gallery-item {
+}  */
+/* .gallery-item {
    height: 100px;
-}
+} */
 @media(max-width: 1355px){
     .container{
         margin: auto;
@@ -22,4 +25,19 @@
         display: grid;
         grid-template-columns: 1fr;
     }
+}
+.comments-list{
+    height: 150px;
+
+}
+.comments-list li{
+    margin-bottom: 10px;
+}
+
+.galleryImage{
+    display: grid;
+  grid-gap: 5px;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
+  margin-left: 25%
 }

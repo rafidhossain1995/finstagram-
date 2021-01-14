@@ -3,9 +3,8 @@
 }
 
 .containerComments{
-    height: 250px;
     overflow-y: scroll;
-    margin-left: 10%;
+    margin-bottom: 5px;
 }
 
 /* .gallery-image{
@@ -17,3 +16,18 @@
 /* .ul{
     margin-left: -100px;
 } */
+
+.handleComment{
+    position: absolute;
+    /* margin: 0 2em; */
+    border-top: 1px solid grey; 
+    padding: 0 79px;
+    margin-left: -1%;
+}    
+
+
+.comment-button{
+    width: 100%;
+    margin-left: -29%;
+}
+
