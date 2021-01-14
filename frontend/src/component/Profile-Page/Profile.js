@@ -93,7 +93,6 @@ import CommentsIndex from "../Comments/CommentsIndex"
                 console.log(err)
             }
         }
-        debugger
         
         const fetchPosts= async () => {    
             let res = await axios({

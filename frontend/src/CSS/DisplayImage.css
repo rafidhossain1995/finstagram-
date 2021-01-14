@@ -7,10 +7,13 @@
     
    
 } */
-.showPostDiv{
+/* .showPostDiv{
  height: 500px;
+ display: grid;
+  grid-gap: 1px;
+  grid-template-columns: repeat(3, 1fr);
 
-} 
+}  */
 /* .gallery-item {
    height: 100px;
 } */
@@ -29,4 +32,12 @@
 }
 .comments-list li{
     margin-bottom: 10px;
+}
+
+.galleryImage{
+    display: grid;
+  grid-gap: 5px;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
+  margin-left: 25%
 }

@@ -37,7 +37,6 @@ const PostsList =({posts})=>{
     
     
     const showPosts = posts.map((post)=>{
-        debugger
         return(
            <div className="showPostDiv">
 

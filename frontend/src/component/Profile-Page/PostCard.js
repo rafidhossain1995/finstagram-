@@ -5,11 +5,9 @@ import CommentsIndex from "../Comments/CommentsIndex"
 
 const PostCard = ({username, imageUrl, postContent, post_id})=>{
     const handleStyle = {
-        height:"75%",
-        width:"75%",
+        height:"100%",
+        width:"100%",
         border: "2px solid black"
-        
-        
     }
 
     return(
@@ -20,20 +18,12 @@ const PostCard = ({username, imageUrl, postContent, post_id})=>{
             <img className="pix" src={imageUrl} style={handleStyle}/>
             <h4>{postContent}</h4>
             <div className="iconz">
-           
-
             <br/>
             {/* <CreateComment post_id={post_id}/> */}
             {/* <CommentsIndex post_id={post_id}/>   */}
             </div>
-          
-
-         </div>
-
-            
+         </div>          
         </div>
-
-       
     )
 }
 export default PostCard
