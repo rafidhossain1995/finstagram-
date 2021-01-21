@@ -13,3 +13,4 @@ Frontend- For the frontend, I decided to use REACT. This frame wire was set up t
 
 I hope you all enjoy the app. Feel free to reach out for any questions, comments or concerns!
 
+![image](https://user-images.githubusercontent.com/55670299/105388806-17cecf80-5be5-11eb-9a5e-be5409264636.png)
